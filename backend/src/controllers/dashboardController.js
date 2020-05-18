@@ -7,8 +7,8 @@ async function postComment (req, res, next) {
   dateTime = date+' '+time;
   const comment = new Comment({
     title: req.body.title.title,
-    content: req.body.title.content,
     username : req.body.title.username,
+    content: req.body.title.content,
     date: dateTime,
   });
   comment.save()

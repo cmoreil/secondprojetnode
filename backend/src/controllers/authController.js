@@ -1,5 +1,7 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const { check, validationResult } = require('express-validator/check');
 
 exports.getLogin = (req, res, next) => {
     res.render('auth/login', { title: 'login' });
@@ -9,42 +11,62 @@ exports.getRegister = (req, res, next) => {
     res.render('auth/register', { title: 'register' });
   }
 
-const bcrypt = require('bcrypt');
-async function register (req, res, next) {
-        bcrypt.hash(req.body.password, 10)
-          .then(hash => {
-            const user = new User({
-              email: req.body.email,
-              password: hash,
-              admin: false,
-              username: req.body.username
-            });
-            user.save()
-              .then(() => res.status(201).json({
-                userId: user._id,
-                username: user.username,
-                admin: user.admin,
-                token: jwt.sign(
-                  { userId: user._id },
-                  'RANDOM_TOKEN_SECRET',
-                  { expiresIn: '24h' }
-                )
-              }))
-              .catch(error => res.status(400).json({ error }));
-          })
-          .catch(error => res.status(500).json({ error }));
-};
+exports.validate = (method) => {
+    switch (method) {
+      case 'register': {
+       return [
+        check('username', 'Username doesn\'t exists and/or is not between 3 and 20 characters').exists().isLength({ min: 3, max: 20 }),
+        check('email', 'Invalid email').exists().isEmail(),
+        check('password', 'Password doesn\'t exists and/or is not between 3 and 20 characters').exists().isLength({ min: 3, max: 20 })
+         ]
+      }
+    }
+  }
+
+  async function register (req, res, next) {
+
+      const errors = validationResult(req); // Finds the validation errors in this request and wraps them in an object with handy functions
+
+      if (!errors.isEmpty()) {
+        res.status(422).json({ errors: errors.array() });
+        return;
+      }
+
+      bcrypt.hash(req.body.password, 10)
+      .then(hash => {
+      const user = new User({
+        email: req.body.email,
+        password: hash,
+        admin: false,
+        username: req.body.username
+      })
+
+      user.save()
+      .then(() => res.status(201).json({
+        userId: user._id,
+        username: user.username,
+        admin: user.admin,
+        token: jwt.sign(
+          { userId: user._id },
+          'RANDOM_TOKEN_SECRET',
+          { expiresIn: '24h' }
+          )
+        }))
+        .catch(error => res.status(400).json({ error }));
+    })
+    .catch(error => res.status(500).json({ error }));
+  };
 
 async function login (req, res, next) {
     User.findOne({ email: req.body.email })
       .then(user => {
         if (!user) {
-          return res.status(401).json({ error: 'Utilisateur non trouvé !' });
+          return res.status(401).json({ error: 'User not find!' });
         }
         bcrypt.compare(req.body.password, user.password)
           .then(valid => {
             if (!valid) {
-              return res.status(401).json({ error: 'Mot de passe incorrect !' });
+              return res.status(401).json({ error: 'Incorrect password !' });
             }
             res.status(200).json({
               userId: user._id,
