@@ -18,7 +18,7 @@ exports.validate = (method) => {
         check('username', 'Username doesn\'t exists and/or is not between 3 and 20 characters').exists().isLength({ min: 3, max: 20 }),
         check('email', 'Invalid email').exists().isEmail(),
         check('password', 'Password doesn\'t exists and/or is not between 3 and 20 characters').exists().isLength({ min: 3, max: 20 })
-         ]
+        ]
       }
     }
   }
