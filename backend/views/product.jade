@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div.
+    <form id="myform" action="postProduct" method="post" enctype="application/x-www-form-urlencoded">
+    <fieldset>
+      <legend>Product</legend>
+      <div class="form-group">
+        <label for="type">Séminaire</label>
+        <input type="checkbox" id="type" name="type" value="séminaire">
+        <label for="type">Formation</label>
+        <input type="checkbox" id="type" name="type" value="formation">
+      </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Title" name="title">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="description" class="form-control" id="description" placeholder="Desciption" name="description">
+      </div>
+      <div class="form-group">
+        <label for="dates">Date</label>
+        <input type="date" class="form-control" id="dates" placeholder="Date ou période" name="dates">
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="price" class="form-control" id="price" placeholder="Price" name="price">
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </fieldset>
+    </form>

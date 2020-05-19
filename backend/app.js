@@ -9,6 +9,7 @@ const expressValidator = require('express-validator')
 var indexRouter = require('./src/routes/index');
 var authRouter = require('./src/routes/auth');
 var dashboardRouter = require('./src/routes/dashboard');
+var productRouter = require ('./src/routes/product');
 
 
 //Connexion à la base de donnée
@@ -50,6 +51,7 @@ app.use(function(req, res, next) {
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/dashboard', dashboardRouter);
+app.use('/', productRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

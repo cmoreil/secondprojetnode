@@ -13,6 +13,7 @@
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
+    "date-fns": "^2.14.0",
     "debug": "^2.6.9",
     "express": "^4.16.4",
     "express-validator": "^5.3.0",
@@ -21,6 +22,7 @@
     "jsonwebtoken": "^8.5.1",
     "jstransformer-verbatim": "^1.1.1",
     "mongoose": "^5.9.14",
+    "mongoose-date-format": "^1.2.0",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.9.1",
     "sha1": "^1.1.1"
