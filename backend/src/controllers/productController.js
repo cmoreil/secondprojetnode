@@ -7,11 +7,27 @@ exports.product = (req, res, next) => {
 async function postProduct (req, res, next) {
 
   const product = new Product({
-    ...req.body
+    type: req.body.type,
+    title: req.body.title,
+    description: req.body.description,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    price: req.body.price
   });
-  product.save()
-    .then(() => res.status(201).json({ product: 'Product available in database' }))
-    .catch(error => res.status(500).json({ error }));
+
+  product.save().then(
+    () => {
+      res.status(201).json({
+        message: 'Product saved successfully!'
+      });
+    }
+  ).catch(
+    (error) => {
+      res.status(400).json({
+        error: error
+      });
+    }
+  );
 };
 
 async function getProduct (req, res, next) {
