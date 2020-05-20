@@ -5,20 +5,19 @@ import Slider from "react-slick";
 import API from "../../utils/API";
 
 
-export class GetLastComment extends React.Component {
+export class GetLastProduct extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            comments: [],
-            recomments: []
+            products: []
         };
       }
 
     async componentDidMount() {
-        let allComments = await API.getLastComment();
-        let data = allComments.data;
-        this.setState({ comments: data.comment, loading:false});
+        let allProducts = await API.getLastProduct();
+        let data = allProducts.data;
+        this.setState({ products: data.product, loading:false});
     }
 
     render() {
@@ -32,13 +31,13 @@ export class GetLastComment extends React.Component {
         return (
             <div>
             <Slider {...settings}>
-            {this.state.comments.map(comment => (
+            {this.state.products.map(product => (
                 <h3>
                     <ul>
-                        <li className="CartelGetLastComment" key= {comment.title}> <p>{comment.title} </p>
-                        <p> {comment.content} </p>
-                        <p>par {comment.username} </p>
-                        <p> {comment.created_at} </p>
+                        <li className="CartelGetLastProduct" key= {product.title}> <p>{product.title} </p>
+                        <p> {product.description} </p>
+                        <p> {product.price} </p>
+                        <p> {product.startdate} {product.endDate} </p>
                         </li>
                     </ul>
                 </h3>
@@ -49,4 +48,4 @@ export class GetLastComment extends React.Component {
     }
 }
 
-export default GetLastComment;
+export default GetLastProduct;

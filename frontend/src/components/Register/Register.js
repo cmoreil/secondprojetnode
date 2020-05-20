@@ -32,45 +32,48 @@ export class Register extends React.Component {
   render() {
     const { email, password, cpassword, username } = this.state;
     return (
-      <div className="Login">
-        <FormGroup controlId="email" bsSize="large">
-          <FormLabel>Email</FormLabel>
-          <FormControl
-            autoFocus
-            type="email"
-            value={email}
-            onChange={this.handleChange}
-          />
-        </FormGroup>
-        <FormGroup controlId="password" bsSize="large">
-          <FormLabel>Password</FormLabel>
-          <FormControl
-            value={password}
-            onChange={this.handleChange}
-            type="password"
-          />
-        </FormGroup>
-        <FormGroup controlId="cpassword" bsSize="large">
-          <FormLabel>Confirm Password</FormLabel>
-          <FormControl
-            value={cpassword}
-            onChange={this.handleChange}
-            type="password"
-          />
-        </FormGroup>
-        <FormGroup controlId="username" bsSize="large">
+      <div className="Register">
+        <FormGroup controlId="username" bsSize="normal">
           <FormLabel>Username</FormLabel>
-          <FormControl
-            autoFocus
-            value={username}
-            onChange={this.handleChange}
-            type="string"
-          />
+            <FormControl
+              autoFocus
+              value={username}
+              onChange={this.handleChange}
+              type="string"
+            />
         </FormGroup>
-        <Button onClick={this.send} block bsSize="large" type="submit">
+        <FormGroup controlId="email" bsSize="normal">
+          <FormLabel>Email</FormLabel>
+            <FormControl
+              autoFocus
+              type="email"
+              value={email}
+              onChange={this.handleChange}
+            />
+        </FormGroup>
+        <FormGroup controlId="password" bsSize="normal">
+          <FormLabel>Password</FormLabel>
+            <FormControl
+              value={password}
+              onChange={this.handleChange}
+              type="password"
+            />
+        </FormGroup>
+        <FormGroup controlId="cpassword" bsSize="normal">
+          <FormLabel>Confirm Password</FormLabel>
+            <FormControl
+              value={cpassword}
+              onChange={this.handleChange}
+              type="password"
+            />
+        </FormGroup>
+
+        <Button onClick={this.send} block bsSize="normal" type="submit">
           Inscription
         </Button>
       </div>
     );
   }
 }
+
+export default Register;

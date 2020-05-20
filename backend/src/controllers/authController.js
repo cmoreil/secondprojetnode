@@ -101,6 +101,18 @@ async function getLastUser(req, res, next) {
     .catch(error => res.status(500).json({ error }));
 };
 
+async function getUser(req, res, next) {
+  User.find()
+    .then(user => {
+      if (!user) {
+        return res.status(401).json({ error: 'No user !' });
+      }
+      res.status(201).json({ user });
+    })
+    .catch(error => res.status(500).json({ error }));
+};
+
 exports.login = login;
 exports.register = register;
+exports.getUser = getUser;
 exports.getLastUser = getLastUser;

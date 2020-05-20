@@ -59,6 +59,6 @@ async function getLastComment (req, res, next) {
     .catch(error => res.status(500).json({ error }));
 };
 
-exports.postComment = postComment;
 exports.getComment = getComment;
+exports.postComment = postComment;
 exports.getLastComment = getLastComment;

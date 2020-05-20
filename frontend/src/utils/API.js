@@ -32,6 +32,9 @@ export default {
         username,
         content
       },
+      {
+        headers: headers
+      }
     );
   },
   getComment: function() {
@@ -46,7 +49,13 @@ export default {
   getLastUser: function() {
     return axios.get(`${burl}/auth/getLastUser`);
   },
+  getUser: function() {
+    return axios.get(`${burl}/auth/getUser`);
+  },
   getProduct: function() {
-    return axios.get(`${burl}/dashboard/getProduct`);
+    return axios.get(`${burl}/product/getProduct`);
+  },
+  getLastProduct: function() {
+    return axios.get(`${burl}/product/getLastProduct`);
   }
 };

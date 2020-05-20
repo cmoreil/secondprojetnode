@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import API from "../../utils/API";
 
-export class GetLastUser extends React.Component {
+export class Getuser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,7 +10,7 @@ export class GetLastUser extends React.Component {
       }
 
     async componentDidMount() {
-        let allUsers = await API.getLastUser();
+        let allUsers = await API.getuser();
         let data = allUsers.data;
         this.setState({ users: data.user, loading:false});
         console.log(data.user);
@@ -18,8 +18,8 @@ export class GetLastUser extends React.Component {
 
     render() {
         return (
-            <div className="CartelLastUser">
-                {this.state.users.map(user => (
+            <div className="CartelUser">
+            {this.state.users.map(user => (
                 <ul key= {user.username}> {user.username}
                 <p>le {user.created_at}</p>
                 </ul>
@@ -28,5 +28,4 @@ export class GetLastUser extends React.Component {
         )
     }
 }
-
-export default GetLastUser;
+export default Getuser;

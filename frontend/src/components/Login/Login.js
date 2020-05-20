@@ -35,7 +35,7 @@ export class Login extends React.Component {
     const { email, password } = this.state;
     return (
       <div className="Login">
-        <FormGroup controlId="email" bsSize="large">
+        <FormGroup controlId="email" bsSize="normal">
           <FormLabel>Email</FormLabel>
           <FormControl
             autoFocus
@@ -44,7 +44,7 @@ export class Login extends React.Component {
             onChange={this.handleChange}
           />
         </FormGroup>
-        <FormGroup controlId="password" bsSize="large">
+        <FormGroup controlId="password" bsSize="normal">
           <FormLabel>Password</FormLabel>
           <FormControl
             value={password}
@@ -52,10 +52,12 @@ export class Login extends React.Component {
             type="password"
           />
         </FormGroup>
-        <Button onClick={this.send} block bsSize="large" type="submit">
+        <Button onClick={this.send} block bsSize="normal" type="submit">
           Connexion
         </Button>
       </div>
     );
   }
 }
+
+export default Login;

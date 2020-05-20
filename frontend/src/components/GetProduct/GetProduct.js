@@ -20,12 +20,15 @@ export class getProduct extends React.Component {
                 <div>
                     {this.state.products.map(product => (
                         <ul>
-                        <li className="Cartel" key= {product.title}> <h2>{product.title} </h2>
-                        <p> {product.desciption} </p></li>
+                        <li className="CartelGetProduct" key= {product.title}> <h2>{product.title} </h2>
+                        <p> {product.desciption} </p>
+                        <p> {product.price} </p>
+                        <p> {product.startDate} {product.endDate} </p></li>
                         </ul>
                     ))}
                 </div>
         )
     }
 }
+
 export default getProduct;
