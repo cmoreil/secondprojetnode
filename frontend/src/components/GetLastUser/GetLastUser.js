@@ -20,7 +20,7 @@ export class GetLastUser extends React.Component {
         return (
             <div className="CartelLastUser">
                 {this.state.users.map(user => (
-                <ul key= {user.username}> {user.username}
+                <ul key= {user._id}> {user.username}
                 <p>le {user.created_at}</p>
                 </ul>
                 ))}

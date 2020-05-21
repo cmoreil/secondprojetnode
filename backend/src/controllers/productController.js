@@ -17,9 +17,7 @@ async function postProduct (req, res, next) {
 
   product.save().then(
     () => {
-      res.status(201).json({
-        message: 'Product saved successfully!'
-      });
+      res.status(201).json({ product });
     }
   ).catch(
     (error) => {
@@ -31,7 +29,7 @@ async function postProduct (req, res, next) {
 };
 
 async function getProduct (req, res, next) {
-    product.find()
+    Product.find()
       .then(product => {
         if (!product) {
           return res.status(401).json({ error: 'No product in database !' });
@@ -42,7 +40,7 @@ async function getProduct (req, res, next) {
 };
 
 async function getLastProduct (req, res, next) {
-  product.find()
+  Product.find()
     .sort({_id: -1})
     .limit(3)
     .then(product => {

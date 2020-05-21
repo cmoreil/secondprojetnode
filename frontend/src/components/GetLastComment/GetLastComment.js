@@ -35,9 +35,8 @@ export class GetLastComment extends React.Component {
             {this.state.comments.map(comment => (
                 <h3>
                     <ul>
-                        <li className="CartelGetLastComment" key= {comment.title}> <p>{comment.title} </p>
+                    <li key= {comment.title}> <h2>{comment.title}, par {comment.username} </h2>
                         <p> {comment.content} </p>
-                        <p>par {comment.username} </p>
                         <p> {comment.created_at} </p>
                         </li>
                     </ul>

@@ -5,7 +5,7 @@ const commentSchema = mongoose.Schema({
   title: { type: String, required: true, unique: true },
   username: { type: String, required: true, lowercase: true },
   content: { type: String, required: true, unique: true },
-  created_at: {type: Date, required: true, default: Date.now },
+  created_at: {type: String, required: true },
   recomment: [{ content: String }]
 });
 

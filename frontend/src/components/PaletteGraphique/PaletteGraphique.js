@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import './PaletteGraphique.css';
 
 export class PaletteGraphique extends Component {
   render() {

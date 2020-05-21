@@ -20,9 +20,10 @@ export class GetComment extends React.Component {
         return (
                 <div>
                     {this.state.comments.map(comment => (
-                        <ul>
-                        <li className="CartelGetComment" key= {comment.title}> <h2>{comment.title}, par {comment.username} </h2>
-                        <p> {comment.content} </p></li>
+                        <ul className="cartelGetComment">
+                        <li key= {comment.title}> <h2>{comment.title}, par {comment.username} </h2>
+                        <p> {comment.content} </p>
+                        <p> {comment.created_at}</p></li>
                         </ul>
                     ))}
                 </div>

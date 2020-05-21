@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true, lowercase: true },
   password: { type: String, required: true },
   admin: { type: Boolean, required: true },
-  created_at: {type: Date, required: true, default: Date.now }
+  created_at: {type: String, required: true }
 });
 
 userSchema.plugin(uniqueValidator);

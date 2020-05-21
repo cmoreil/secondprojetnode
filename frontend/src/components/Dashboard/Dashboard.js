@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { PostComment } from "../PostComment/PostComment.js";
 import { GetComment } from "../GetComment/GetComment.js";
-import Welcome from "../Welcome/Welcome.js";
+import Welcome from "./Welcome/Welcome.js";
 import API from "../../utils/API";
 
 export class Dashboard extends React.Component {

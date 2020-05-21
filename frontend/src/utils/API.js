@@ -24,18 +24,8 @@ export default {
   isAuth: function() {
     return localStorage.getItem("token") !== null;
   },
-  postComment: function(title, username, content) {
-    return axios.post(
-      `${burl}/dashboard/postComment`,
-      {
-        title,
-        username,
-        content
-      },
-      {
-        headers: headers
-      }
-    );
+  postComment: function(send) {
+    return axios.post(`${burl}/dashboard/postComment`, send, {headers: headers});
   },
   getComment: function() {
     return axios.get(`${burl}/dashboard/getComment`);

@@ -21,6 +21,7 @@ export class GetLastProduct extends React.Component {
     }
 
     render() {
+        console.log(this.state.products);
         let settings = {
             dots: true,
             infinite: true,
@@ -33,12 +34,10 @@ export class GetLastProduct extends React.Component {
             <Slider {...settings}>
             {this.state.products.map(product => (
                 <h3>
-                    <ul>
-                        <li className="CartelGetLastProduct" key= {product.title}> <p>{product.title} </p>
-                        <p> {product.description} </p>
-                        <p> {product.price} </p>
-                        <p> {product.startdate} {product.endDate} </p>
-                        </li>
+                    <ul className="cartelGetlastproduct">
+                    <li key= {product._id}> <h2>{product.type} : {product.title}</h2>
+                    <p> du {product.startDate} au {product.endDate} </p>
+                    <p> {product.price} €</p></li>
                     </ul>
                 </h3>
                 ))}

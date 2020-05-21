@@ -27,11 +27,18 @@ async function postComment (req, res, next) {
         return;
       }
 
+  today = new Date();
+  date = today.toLocaleDateString();
+  time = today.toLocaleTimeString("fr-FR");
+  dateTime = date+' '+time;
   const comment = new Comment({
-    ...req.body
+    username: req.body.username,
+    title: req.body.title,
+    content: req.body.content,
+    created_at: dateTime
   });
   comment.save()
-    .then(() => res.status(201).json({ comment: 'Comment posted' }))
+    .then(() => res.status(201).json({ comment }))
     .catch(error => res.status(500).json({ error }));
 };
 

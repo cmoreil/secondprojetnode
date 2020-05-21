@@ -32,13 +32,18 @@ exports.validate = (method) => {
         return;
       }
 
+      today = new Date();
+      date = today.toLocaleDateString();
+      time = today.toLocaleTimeString("fr-FR");
+      dateTime = date+' '+time;
       bcrypt.hash(req.body.password, 10)
       .then(hash => {
       const user = new User({
         email: req.body.email,
         password: hash,
         admin: false,
-        username: req.body.username
+        username: req.body.username,
+        created_at: dateTime
       })
 
       user.save()
