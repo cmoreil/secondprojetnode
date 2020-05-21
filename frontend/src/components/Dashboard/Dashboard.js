@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { PostComment } from "../PostComment/PostComment.js";
-import { GetComment } from "../GetComment/GetComment.js";
+import { GetLastComment } from "../GetLastComment/GetLastComment.js";
 import Welcome from "./Welcome/Welcome.js";
 import API from "../../utils/API";
 
@@ -19,7 +19,7 @@ export class Dashboard extends React.Component {
         </Button>
         < Welcome />
         < PostComment />
-        < GetComment />
+        < GetLastComment />
       </div>
     );
   }

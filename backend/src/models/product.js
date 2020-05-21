@@ -6,7 +6,7 @@ const productSchema = mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   startDate: { type: Date, required: true, unique: true},
-  endDate: { type: Date, required: true },
+  endDate: { type: Date, required: true, unique: true },
   price: { type: Number, required: true }
 });
 

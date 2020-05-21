@@ -30,7 +30,7 @@ async function postComment (req, res, next) {
   today = new Date();
   date = today.toLocaleDateString();
   time = today.toLocaleTimeString("fr-FR");
-  dateTime = date+' '+time;
+  dateTime = date+'  '+time;
   const comment = new Comment({
     username: req.body.username,
     title: req.body.title,

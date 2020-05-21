@@ -1,4 +1,6 @@
 const Product = require('../models/product');
+var moment = require('moment');
+moment().format();
 
 exports.product = (req, res, next) => {
   res.render('product', { title: 'Product' });
@@ -41,7 +43,8 @@ async function getProduct (req, res, next) {
 
 async function getLastProduct (req, res, next) {
   Product.find()
-    .sort({_id: -1})
+    .sort({ startDate: 'desc'})
+    .skip(2)
     .limit(3)
     .then(product => {
       if (!product) {
