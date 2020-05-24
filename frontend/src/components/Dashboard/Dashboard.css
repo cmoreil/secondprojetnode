@@ -1,0 +1,12 @@
+.Dashboard {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.Button {
+    display:flex;
+    flex-direction: column;
+    margin-top: 15px;
+}

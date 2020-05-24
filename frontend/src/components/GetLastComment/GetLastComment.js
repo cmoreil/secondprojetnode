@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Slider from "react-slick";
 import API from "../../utils/API";
+import './GetLastComment.css';
 
 
 export class GetLastComment extends React.Component {
@@ -34,7 +35,8 @@ export class GetLastComment extends React.Component {
             <Slider {...settings}>
             {this.state.comments.map(comment => (
                 <h3>
-                    <ul>
+                    <ul className="Getlastcomment">
+                    <h1>Latest comments</h1>
                     <li key= {comment.title}> <h2>{comment.title}, par {comment.username} </h2>
                         <p> {comment.content} </p>
                         <p> {comment.created_at} </p>

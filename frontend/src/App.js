@@ -14,18 +14,17 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      < Headerbar />
-        <div className="App-content">
-          <p>Mon potager urbain</p>
-          <BrowserRouter>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/paletteGraphique" component={PaletteGraphique} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
+        <BrowserRouter>
+          <Headerbar/>
+            <div className="App-container">
+              <Route exact path="/" component={Home} />
+              <Route exact path="/PaletteGraphique" component={PaletteGraphique} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
+            </div>
         </BrowserRouter>
-        </div>
-      < Footerbar />
+        <Footerbar />
       </div>
   );
 }

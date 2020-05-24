@@ -1,6 +1,7 @@
 import React from "react";
 import {Button, FormGroup, FormControl, FormLabel} from "../../../node_modules/react-bootstrap";
 import API from "../../utils/API";
+import './Register.css';
 
 export class Register extends React.Component {
   state = {
@@ -68,8 +69,8 @@ export class Register extends React.Component {
             />
         </FormGroup>
 
-        <Button onClick={this.send} block bsSize="normal" type="submit">
-          Inscription
+        <Button className="Button" onClick={this.send} block bsSize="normal" type="submit">
+          Submit
         </Button>
       </div>
     );

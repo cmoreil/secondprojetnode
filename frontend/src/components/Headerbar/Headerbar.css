@@ -1,0 +1,27 @@
+.Background {
+    background-color: #d1f5be;
+    height: 300px;
+    margin-top: 0px;
+    text-align: right;
+}
+
+.Titre {
+    font-size: 4em;
+    color: #82735c;
+    text-decoration: none;
+    text-align: center;
+}
+
+.Icones {
+    display: block;
+    line-height:2.1em;
+    text-align: center;
+}
+
+.Navlink {
+    text-decoration: none;
+    font-size: 1.2em;
+    margin: 10px;
+    color: #4b3b40;
+    font-weight: bold;
+}

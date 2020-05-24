@@ -1,0 +1,17 @@
+.CartelLastUser {
+    font-size: 0.5em;
+    padding: auto;
+    margin-top: 50px;
+    height: auto;
+    width: auto;
+    border: 1px solid;
+    border-color: #d1f5be;
+    border-radius: 15px;
+    color: #1a936f ;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow-wrap : break-word;
+}

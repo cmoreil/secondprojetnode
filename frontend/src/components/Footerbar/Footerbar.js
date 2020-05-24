@@ -1,13 +1,15 @@
 import React from "react";
+import './Footerbar.css';
+
 
 export class Footerbar extends React.Component {
 
     render() {
         return (
           <div className="Footerbar">
-            Tous droits réservés à moi-même et merci !
+              <p>Tous droits réservés à moi-même et merci !</p>
           </div>
-        );
+      );
       }
     }
 

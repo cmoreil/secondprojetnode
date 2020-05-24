@@ -1,22 +1,16 @@
-import React, { Component } from "react";
-import { GetLastUser } from "../GetLastUser/GetLastUser.js";
+import React from "react";
+import { Container} from 'react-bootstrap';
 import { GetLastProduct } from "../GetLastProduct/GetLastProduct.js";
-import { Row, Col, Container} from 'react-bootstrap';
+import './Home.css';
+
 
 export class Home extends React.Component {
 
     render() {
       return (
         <div className="App">
-            <Container>
-                <Row>
-                    <Col md="6">
-                    < GetLastProduct />
-                    </Col>
-                    <Col md="3">
-                    < GetLastUser />
-                    </Col>
-                </Row>
+            <Container className="Container">
+                <GetLastProduct />
             </Container>
         </div>
             );

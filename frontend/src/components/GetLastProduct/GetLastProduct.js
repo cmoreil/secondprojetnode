@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Slider from "react-slick";
 import API from "../../utils/API";
+import './GetLastProduct.css';
 
 
 export class GetLastProduct extends React.Component {
@@ -34,11 +35,12 @@ export class GetLastProduct extends React.Component {
             <Slider {...settings}>
             {this.state.products.map(product => (
                 <h3>
-                    <ul className="cartelGetlastproduct">
-                    <li key= {product._id}> <h2>{product.type} : {product.title}</h2>
-                    <p> du {product.startDate} au {product.endDate} </p>
-                    <p> {product.price} €</p></li>
-                    </ul>
+                    <h1>Latest activities : </h1>
+                        <ul className="cartelGetlastproduct">
+                        <li key= {product._id}> <h2>{product.type} : {product.title}</h2>
+                        <p> du {product.startDate} au {product.endDate} </p>
+                        <p> {product.price} €</p></li>
+                        </ul>
                 </h3>
                 ))}
             </Slider>

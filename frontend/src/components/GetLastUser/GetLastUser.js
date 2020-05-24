@@ -1,5 +1,6 @@
-import React, {Component} from "react";
+import React from "react";
 import API from "../../utils/API";
+import './GetLastUser.css';
 
 export class GetLastUser extends React.Component {
     constructor(props) {
@@ -19,10 +20,14 @@ export class GetLastUser extends React.Component {
     render() {
         return (
             <div className="CartelLastUser">
+                <h1>Last registered</h1>
                 {this.state.users.map(user => (
-                <ul key= {user._id}> {user.username}
-                <p>le {user.created_at}</p>
-                </ul>
+                <h3>
+                        <ul key= {user._id}>
+                        <li>{user.username}</li>
+                        <li>le {user.created_at}</li>
+                        </ul>
+                </h3>
                 ))}
             </div>
         )
