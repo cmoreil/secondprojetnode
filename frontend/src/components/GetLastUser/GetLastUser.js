@@ -24,7 +24,7 @@ export class GetLastUser extends React.Component {
                 {this.state.users.map(user => (
                 <h3>
                         <ul key= {user._id}>
-                        <li>{user.username}</li>
+                        <li>{user.username},</li>
                         <li>le {user.created_at}</li>
                         </ul>
                 </h3>

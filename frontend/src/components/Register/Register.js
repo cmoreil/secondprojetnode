@@ -36,7 +36,7 @@ export class Register extends React.Component {
       <div className="Register">
         <FormGroup controlId="username" bsSize="normal">
           <FormLabel>Username</FormLabel>
-            <FormControl
+            <FormControl className="Input"
               autoFocus
               value={username}
               onChange={this.handleChange}
@@ -45,7 +45,7 @@ export class Register extends React.Component {
         </FormGroup>
         <FormGroup controlId="email" bsSize="normal">
           <FormLabel>Email</FormLabel>
-            <FormControl
+            <FormControl className="Input"
               autoFocus
               type="email"
               value={email}
@@ -54,7 +54,7 @@ export class Register extends React.Component {
         </FormGroup>
         <FormGroup controlId="password" bsSize="normal">
           <FormLabel>Password</FormLabel>
-            <FormControl
+            <FormControl className="Input"
               value={password}
               onChange={this.handleChange}
               type="password"
@@ -62,7 +62,7 @@ export class Register extends React.Component {
         </FormGroup>
         <FormGroup controlId="cpassword" bsSize="normal">
           <FormLabel>Confirm Password</FormLabel>
-            <FormControl
+            <FormControl className="Input"
               value={cpassword}
               onChange={this.handleChange}
               type="password"

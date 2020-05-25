@@ -19,22 +19,21 @@ export class Dashboard extends React.Component {
       <div>
         <Container>
           <Row>
-            <Col md={9}>
-              <div>
-              <Button className="Button" onClick={this.disconnect} type="submit">
-              Sign out
-              </Button></div>
-              <div className="Dashboard">
-              <Welcome />
-              <PostComment/>
-              </div>
-              <div>
-              <GetLastComment />
-              </div>
-            </Col>
-            <Col md={3}>
-              <GetLastUser />
-            </Col>
+          <Col xs={6} md={4}>
+            <Button className="Button" onClick={this.disconnect} type="submit">
+            Sign out
+            </Button>
+            <div className="Dashboard">
+            <Welcome />
+            <PostComment/>
+            </div>
+          </Col>
+          <Col xs={6} md={4}>
+            <GetLastComment />
+          </Col>
+          <Col xs={6} md={4}>
+            <GetLastUser />
+          </Col>
           </Row>
         </Container>
       </div>

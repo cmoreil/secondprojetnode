@@ -66,6 +66,20 @@ async function getLastComment (req, res, next) {
     .catch(error => res.status(500).json({ error }));
 };
 
+async function getByIdComment (req, res, next) {
+  Comment.findOne({ _id: req.params.id })
+  .then(comment => res.status(200).json(comment))
+  .catch(error => res.status(404).json({ error }));
+};
+
+async function deleteComment (req, res, next) {
+  Comment.deleteOne({ _id: req.params.id })
+      .then(() => res.status(200).json({ message: 'Comment deleted !'}))
+      .catch(error => res.status(400).json({ error }));
+};
+
 exports.getComment = getComment;
 exports.postComment = postComment;
 exports.getLastComment = getLastComment;
+exports.getByIdComment = getByIdComment;
+exports.deleteComment = deleteComment;

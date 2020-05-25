@@ -8,5 +8,7 @@ router.post('/login', authController.login);
 router.post('/register', authController.validate('register'), authController.register);
 router.get('/getUser', authController.getUser);
 router.get('/getLastUser', authController.getLastUser);
+router.get('/getByIdUser/:id', authController.getByIdUser);
+router.get('/deleteUser/:id', authController.deleteUser);
 
 module.exports = router;

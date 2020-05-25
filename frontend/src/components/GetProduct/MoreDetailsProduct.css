@@ -1,0 +1,11 @@
+.Link {
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #1a936f;
+}
+
+.Card {
+    margin: auto;
+    padding-top: 20px;
+}

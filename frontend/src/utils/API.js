@@ -47,5 +47,8 @@ export default {
   },
   getLastProduct: function() {
     return axios.get(`${burl}/product/getLastProduct`);
+  },
+  getByIdProduct: function(id) {
+    return axios.get(`${burl}/product/getByIdProduct/` + id);
   }
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, FormControl, FormLabel, FormGroup } from "react-bootstrap";
 import API from "../../utils/API";
+import './Postcomment.css';
 
 export class PostComment extends React.Component {
   state = {
@@ -34,7 +35,7 @@ export class PostComment extends React.Component {
       <div className="PostComment">
         <FormGroup controlId="title" bsSize="normal">
           <FormLabel>Title</FormLabel>
-            <FormControl
+            <FormControl className="Inputpost"
               autoFocus
               value={title}
               onChange={this.handleChange}
@@ -43,16 +44,15 @@ export class PostComment extends React.Component {
         </FormGroup>
         <FormGroup controlId="content" bsSize="normal">
           <FormLabel>Your Comment</FormLabel>
-            <FormControl
+            <FormControl className="Post"
               autoFocus
               value={content}
               onChange={this.handleChange}
               type="string"
-              row="3"
             />
         </FormGroup>
 
-        <Button onClick={this.send} block bsSize="normal" type="submit">Publish !</Button>
+        <Button className="Button" onClick={this.send} block bsSize="normal" type="submit">Publish !</Button>
       </div>
     );
   }

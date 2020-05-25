@@ -6,5 +6,7 @@ router.get('/comment', dashboardController.comment);
 router.post('/postComment', dashboardController.validate('postComment'), dashboardController.postComment);
 router.get('/getComment', dashboardController.getComment);
 router.get('/getLastComment', dashboardController.getLastComment);
+router.get('/getByIdComment/:id', dashboardController.getByIdComment);
+router.get('/deleteComment/:id', dashboardController.deleteComment);
 
 module.exports = router;

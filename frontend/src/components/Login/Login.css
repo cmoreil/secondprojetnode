@@ -1,6 +1,6 @@
-.Login {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
+.Input {
+    width: 60%;
+    box-sizing: border-box;
+    margin-top:8px;
+    margin-left: 50px;
 }

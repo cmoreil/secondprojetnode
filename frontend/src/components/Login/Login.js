@@ -38,7 +38,7 @@ export class Login extends React.Component {
       <div className="Login">
         <FormGroup controlId="email" bsSize="normal">
           <FormLabel>Email</FormLabel>
-          <FormControl
+          <FormControl className="Input"
             autoFocus
             type="email"
             value={email}
@@ -47,13 +47,13 @@ export class Login extends React.Component {
         </FormGroup>
         <FormGroup controlId="password" bsSize="normal">
           <FormLabel>Password</FormLabel>
-          <FormControl
+          <FormControl className="Input"
             value={password}
             onChange={this.handleChange}
             type="password"
           />
         </FormGroup>
-        <Button onClick={this.send} block bsSize="normal" type="submit">
+        <Button className="Button" onClick={this.send} block bsSize="normal" type="submit">
           Connexion
         </Button>
       </div>

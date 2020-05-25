@@ -55,6 +55,20 @@ async function getLastProduct (req, res, next) {
     .catch(error => res.status(500).json({ error }));
 };
 
+async function getByIdProduct (req, res, next) {
+  Product.findOne({ _id: req.params.id })
+  .then(product => res.status(200).json(product))
+  .catch(error => res.status(404).json({ error }));
+};
+
+async function deleteProduct (req, res, next) {
+  Product.deleteOne({ _id: req.params.id })
+      .then(() => res.status(200).json({ message: 'Product deleted !'}))
+      .catch(error => res.status(400).json({ error }));
+};
+
 exports.postProduct = postProduct;
 exports.getProduct = getProduct;
 exports.getLastProduct = getLastProduct;
+exports.getByIdProduct = getByIdProduct;
+exports.deleteProduct = deleteProduct;

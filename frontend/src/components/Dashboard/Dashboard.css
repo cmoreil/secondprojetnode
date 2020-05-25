@@ -1,12 +1,8 @@
 .Dashboard {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .Button {
-    display:flex;
-    flex-direction: column;
-    margin-top: 15px;
+    margin-top: 20px;
+    color: #1a936f;
 }

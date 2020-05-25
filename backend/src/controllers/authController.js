@@ -117,7 +117,21 @@ async function getUser(req, res, next) {
     .catch(error => res.status(500).json({ error }));
 };
 
+async function getByIdUser (req, res, next) {
+  User.findOne({ _id: req.params.id })
+  .then(user => res.status(200).json(user))
+  .catch(error => res.status(404).json({ error }));
+};
+
+async function deleteUser (req, res, next) {
+  User.deleteOne({ _id: req.params.id })
+      .then(() => res.status(200).json({ message: 'User deleted :('}))
+      .catch(error => res.status(400).json({ error }));
+};
+
 exports.login = login;
 exports.register = register;
 exports.getUser = getUser;
 exports.getLastUser = getLastUser;
+exports.getByIdUser = getByIdUser;
+exports.deleteUser = deleteUser;

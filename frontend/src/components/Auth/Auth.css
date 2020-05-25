@@ -1,0 +1,23 @@
+.Auth {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.Login {
+    padding: 20px;
+    border: solid 1px;
+    border-color: #1a936f;
+    border-radius: 15px;
+    height: 200px;
+}
+
+.Register {
+    padding: 20px;
+    border: solid 1px;
+    border-color: #1a936f;
+    border-radius: 15px;
+}
+
+.Titreauth {
+    color: #1a936f;
+}
