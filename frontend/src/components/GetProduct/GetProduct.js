@@ -1,5 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
+import './GetProduct.css';
+import { FaCarrot } from "react-icons/fa";
 
 export class GetProduct extends React.Component {
     constructor(props) {
@@ -26,11 +28,14 @@ export class GetProduct extends React.Component {
             <div>
                 {this.state.products.map(product => (
                     <ul className="cartelGetproduct">
-                    <li key= {product._id}> <h2>{product.type} : {product.title}</h2>
+                    <li key= {product._id}> <FaCarrot color="orange" size={20}/> <FaCarrot color="orange" size={15}/><FaCarrot color="orange" size={10}/>
+                    <h2 className="Soustitre">{product.type}</h2>
+                    <h3 className="Soussoustitre">{product.title}</h3>
                     <p> { product.description} </p>
                     <p> {product.price} € </p>
                     <p> du {product.startDate} au {product.enddate} </p>
-                    <button className="Button" onClick={()=>this.showProductDetails(product._id)}>MoreDetails</button></li>
+                    <button className="Button" onClick={()=>this.showProductDetails(product._id)}>MoreDetails</button>
+                    </li>
                     </ul>
                    ))}
             </div>

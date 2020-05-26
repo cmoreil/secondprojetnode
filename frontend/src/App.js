@@ -7,6 +7,7 @@ import { Auth } from "./components/Auth/Auth.js";
 import { Home } from "./components/Home/Home.js";
 import { Headerbar } from "./components/Headerbar/Headerbar.js";
 import { Footerbar } from "./components/Footerbar/Footerbar.js";
+import { GetAllProduct } from "./components/GetProduct/GetAllProduct.js";
 import { PaletteGraphique } from "./components/PaletteGraphique/PaletteGraphique.js";
 import { MoreDetailsProduct } from "./components/GetProduct/MoreDetailsProduct.js";
 import './App.css';
@@ -22,6 +23,7 @@ function App() {
               <Route exact path="/login" component={Auth} />
               <Route exact path="/register" component={Auth} />
               <Route exact path="/moredetailsproduct/:id" component={MoreDetailsProduct} />
+              <Route exact path="/getallproduct" component={GetAllProduct} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
             </div>
         </BrowserRouter>

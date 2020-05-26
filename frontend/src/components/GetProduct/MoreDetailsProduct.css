@@ -1,11 +1,32 @@
-.Link {
-    text-decoration: none;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #1a936f;
-}
-
 .Card {
     margin: auto;
     padding-top: 20px;
+    width: 75%;
+
+}
+
+.ButtonCard {
+    display: block;
+    margin : auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color: #1a936f;
+    padding: auto;
+    text-align: center;
+    width: 50%;
+}
+
+.Soustitre {
+    color: #82735c;
+    text-align: center;
+}
+
+.Text {
+    text-align: center;
+    line-height: normal;
+    background-color: #82735c ;
+    opacity: 0.8;
+    border-radius: 20px;
+    color: white;
+    padding: 5px;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import API from "../../utils/API";
 import './MoreDetailsProduct.css';
 
@@ -23,17 +23,17 @@ export class MoreDetailsProduct extends React.Component {
         console.log(this.state.product)
         if (this.state.product) {
             product = (
-                <Card style={{ width: '18rem' }}>
+                <Card>
                     <Card.Body className="Card">
-                    <Card.Title>{ this.state.product.title }</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{ this.state.product.type }</Card.Subtitle>
-                        <Card.Text>
-                        { this.state.product.description }
-                        { this.state.product.price } €
-                         du { this.state.product.startDate }
-                         au { this.state.product.endDate }
+                    <Card.Title><h1>{ this.state.product.title }</h1></Card.Title>
+                        <Card.Subtitle className="Soustitre"><h2>{ this.state.product.type }</h2></Card.Subtitle>
+                        <Card.Text className="Text">
+                        <p>{ this.state.product.description }</p>
+                        <p>{ this.state.product.price } €</p>
+                        <p>du { this.state.product.startDate }</p>
+                        <p>au { this.state.product.endDate }</p>
                         </Card.Text>
-                    <Card.Link className="Link" href="/">Back to home</Card.Link>
+                        <Button className="ButtonCard" onClick={this.send} block bsSize="normal" type="submit">Subscribe</Button>
                     </Card.Body>
                 </Card>
             )
