@@ -55,6 +55,20 @@ async function getLastProduct (req, res, next) {
     .catch(error => res.status(500).json({ error }));
 };
 
+async function getSeminaries (req, res, next) {
+  Product.find()
+  .where({price: 70})
+  .then(product => res.status(200).json(product))
+  .catch(error => res.status(404).json({ error }));
+};
+
+async function getTrainings (req, res, next) {
+  Product.find()
+  .where('price').gt(249).lt(751)
+  .then(product => res.status(200).json(product))
+  .catch(error => res.status(404).json({ error }));
+};
+
 async function getByIdProduct (req, res, next) {
   Product.findOne({ _id: req.params.id })
   .then(product => res.status(200).json(product))
@@ -72,3 +86,5 @@ exports.getProduct = getProduct;
 exports.getLastProduct = getLastProduct;
 exports.getByIdProduct = getByIdProduct;
 exports.deleteProduct = deleteProduct;
+exports.getSeminaries = getSeminaries;
+exports.getTrainings = getTrainings;
