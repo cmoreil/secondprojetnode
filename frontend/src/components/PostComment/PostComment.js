@@ -34,7 +34,7 @@ export class PostComment extends React.Component {
     return (
       <div className="PostComment">
         <FormGroup controlId="title" bsSize="normal">
-          <FormLabel>Title</FormLabel>
+          <FormLabel>Titre</FormLabel>
             <FormControl className="Inputpost"
               autoFocus
               value={title}
@@ -43,7 +43,7 @@ export class PostComment extends React.Component {
             />
         </FormGroup>
         <FormGroup controlId="content" bsSize="normal">
-          <FormLabel>Your Comment</FormLabel>
+          <FormLabel>Mon commentaire du jour</FormLabel>
             <FormControl className="Post"
               autoFocus
               value={content}
@@ -52,7 +52,7 @@ export class PostComment extends React.Component {
             />
         </FormGroup>
 
-        <Button className="Button" onClick={this.send} block bsSize="normal" type="submit">Publish !</Button>
+        <Button className="Button" onClick={this.send} block bsSize="normal" type="submit">Publier !</Button>
       </div>
     );
   }

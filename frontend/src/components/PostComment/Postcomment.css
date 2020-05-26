@@ -1,21 +1,20 @@
 .PostComment {
-    padding: 20px;
+    padding: 15px;
     border: solid 1px;
     border-color: #1a936f;
     border-radius: 15px;
+    margin-bottom:5px;
+
 }
 
 
 .Inputpost {
     box-sizing: border-box;
-    margin-top:10px;
-    margin-left: 50px;
-    width: 60%;
+    width: 100%;
 }
 
 .Post {
-    width: 60%;
+    width: 100%;
     height: 100px;
     box-sizing: border-box;
-    margin-top:10px;
 }

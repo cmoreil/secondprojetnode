@@ -19,7 +19,7 @@ export class MoreDetailsProduct extends React.Component {
     }
 
     render() {
-        let product = <p> No détails available ! </p>;
+        let product = <p> Pas détail disponible ! </p>;
         console.log(this.state.product)
         if (this.state.product) {
             product = (
@@ -33,7 +33,7 @@ export class MoreDetailsProduct extends React.Component {
                         <p>du { this.state.product.startDate }</p>
                         <p>au { this.state.product.endDate }</p>
                         </Card.Text>
-                        <Button className="ButtonCard" onClick={this.send} block bsSize="normal" type="submit">Subscribe</Button>
+                        <Button className="ButtonCard" onClick={this.send} block bsSize="normal" type="submit">S'inscrire</Button>
                     </Card.Body>
                 </Card>
             )

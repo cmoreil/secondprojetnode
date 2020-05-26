@@ -15,10 +15,10 @@ export class Headerbar extends React.Component {
             <Navbar bg="light" variant="light">
               <Nav>
                 <Nav.Link className="Navlink" href="/">Home</Nav.Link>
-                <Nav.Link className="Navlink" href="/about">About</Nav.Link>
-                <Nav.Link className="Navlink" href="/login">Login</Nav.Link>
-                <Nav.Link className="Navlink" href="/register">Registration</Nav.Link>
-                <Nav.Link className="Navlink" href="/dashboard">My space</Nav.Link>
+                <Nav.Link className="Navlink" href="/about">A propos de nous</Nav.Link>
+                <Nav.Link className="Navlink" href="/login">Se connecter</Nav.Link>
+                <Nav.Link className="Navlink" href="/register">S'inscrire</Nav.Link>
+                <Nav.Link className="Navlink" href="/dashboard">Mon espace</Nav.Link>
               </Nav>
               </Navbar>
             </Nav>

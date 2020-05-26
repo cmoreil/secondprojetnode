@@ -35,7 +35,7 @@ export class GetLastProduct extends React.Component {
             <Slider {...settings}>
             {this.state.products.map(product => (
                 <h3>
-                    <h1>Latest activities : </h1>
+                    <h1>Actualités de la fondation : </h1>
                         <ul className="cartelGetlastproduct">
                         <li key= {product._id}> <h2>{product.type} : {product.title}</h2>
                         <p> du {product.startDate} au {product.endDate} </p>

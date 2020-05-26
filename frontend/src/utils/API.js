@@ -50,5 +50,12 @@ export default {
   },
   getByIdProduct: function(id) {
     return axios.get(`${burl}/product/getByIdProduct/` + id);
+  },
+  getSeminaries: function(){
+    return axios.get(`${burl}/product/getSeminaries/`);
+  },
+  getTrainings: function(){
+    return axios.get(`${burl}/product/getTrainings/`);
   }
+
 };

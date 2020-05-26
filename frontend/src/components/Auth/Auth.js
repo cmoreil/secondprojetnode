@@ -18,13 +18,13 @@ export class Auth extends React.Component {
           <Row>
             <Col md={6}>
               <div >
-              <h3 className="Titreauth">Already registered ?</h3>
+              <h3 className="Titreauth">Déjà inscrit ?</h3>
               <Login className="Login"/>
               </div>
             </Col>
             <Col md={6}>
               <div>
-              <h3 className="Titreauth">Otherwise, join us !</h3>
+              <h3 className="Titreauth">Sinon, rejoignez-nous !</h3>
               <Register className="Register" />
               </div>
             </Col>

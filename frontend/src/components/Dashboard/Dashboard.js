@@ -21,7 +21,7 @@ export class Dashboard extends React.Component {
           <Row>
           <Col xs={6} md={4}>
             <Button className="Button" onClick={this.disconnect} type="submit">
-            Sign out
+            Se déconnecter
             </Button>
             <div className="Dashboard">
             <Welcome />

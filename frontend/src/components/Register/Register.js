@@ -70,7 +70,7 @@ export class Register extends React.Component {
         </FormGroup>
 
         <Button className="Button" onClick={this.send} block bsSize="normal" type="submit">
-          Submit
+          S'inscrire
         </Button>
       </div>
     );

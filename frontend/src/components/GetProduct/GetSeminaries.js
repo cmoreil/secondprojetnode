@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import './GetProduct.css';
 import { FaCarrot } from "react-icons/fa";
 
-export class GetProduct extends React.Component {
+export class GetSeminaries extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,9 +12,9 @@ export class GetProduct extends React.Component {
       }
 
     async componentDidMount() {
-        let allProducts = await API.getProduct();
+        let allProducts = await API.getSeminaries();
         let data = allProducts.data;
-        this.setState({ products: data.product, loading:false});
+        this.setState({ products: data });
     }
 
     showProductDetails = (id) => {
@@ -42,4 +42,4 @@ export class GetProduct extends React.Component {
         )
     }
 }
-export default GetProduct;
+export default GetSeminaries;
