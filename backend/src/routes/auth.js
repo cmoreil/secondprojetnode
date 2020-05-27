@@ -10,5 +10,6 @@ router.get('/getUser', authController.getUser);
 router.get('/getLastUser', authController.getLastUser);
 router.get('/getByIdUser/:id', authController.getByIdUser);
 router.get('/deleteUser/:id', authController.deleteUser);
+router.put('/updateUser/:id', authController.updateUser);
 
 module.exports = router;

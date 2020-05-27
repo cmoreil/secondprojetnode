@@ -20,7 +20,6 @@ export default {
   register: function(send) {
     return axios.post(`${burl}/auth/register`, send, { headers: headers });
   },
-
   isAuth: function() {
     return localStorage.getItem("token") !== null;
   },
@@ -56,6 +55,11 @@ export default {
   },
   getTrainings: function(){
     return axios.get(`${burl}/product/getTrainings/`);
+  },
+  getByIdUser: function(id) {
+    return axios.get(`${burl}/auth/getByIdUser/` + id);
+  },
+  updateUser: function(send){
+    return axios.post(`${burl}/auth/register`, send, { headers: headers });
   }
-
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, FormGroup, FormControl, FormLabel} from "../../../node_modules/react-bootstrap";
+import {Button, FormGroup, FormControl, FormLabel} from "react-bootstrap";
 import API from "../../utils/API";
 import './Register.css';
 
@@ -34,8 +34,8 @@ export class Register extends React.Component {
     const { email, password, cpassword, username } = this.state;
     return (
       <div className="Register">
-        <FormGroup controlId="username" bsSize="normal">
-          <FormLabel>Username</FormLabel>
+        <FormGroup controlId="username" >
+          <FormLabel>Pseudo</FormLabel>
             <FormControl className="Input"
               autoFocus
               value={username}
@@ -43,7 +43,7 @@ export class Register extends React.Component {
               type="string"
             />
         </FormGroup>
-        <FormGroup controlId="email" bsSize="normal">
+        <FormGroup controlId="email" >
           <FormLabel>Email</FormLabel>
             <FormControl className="Input"
               autoFocus
@@ -52,24 +52,26 @@ export class Register extends React.Component {
               onChange={this.handleChange}
             />
         </FormGroup>
-        <FormGroup controlId="password" bsSize="normal">
-          <FormLabel>Password</FormLabel>
+        <FormGroup controlId="password" >
+          <FormLabel>Mot de passe</FormLabel>
             <FormControl className="Input"
+              placeholder="votre mot de passe"
               value={password}
               onChange={this.handleChange}
               type="password"
             />
         </FormGroup>
-        <FormGroup controlId="cpassword" bsSize="normal">
-          <FormLabel>Confirm Password</FormLabel>
+        <FormGroup controlId="cpassword" >
+          <FormLabel>Confirmation</FormLabel>
             <FormControl className="Input"
+              placeholder="de nouveau : votre mot de passe"
               value={cpassword}
               onChange={this.handleChange}
               type="password"
             />
         </FormGroup>
 
-        <Button className="Button" onClick={this.send} block bsSize="normal" type="submit">
+        <Button className="Button" onClick={this.send} block  type="submit">
           S'inscrire
         </Button>
       </div>

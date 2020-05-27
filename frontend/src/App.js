@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { PrivateRoute } from "./components/PrivateRoute.js";
 import { Dashboard } from "./components/Dashboard/Dashboard.js";
 import { Auth } from "./components/Auth/Auth.js";
+import { MyProfil } from "./components/GetUser/MyProfil.js";
 import { Home } from "./components/Home/Home.js";
 import { About } from "./components/About/About.js";
 import { Headerbar } from "./components/Headerbar/Headerbar.js";
@@ -26,6 +27,7 @@ function App() {
               <Route exact path="/paletteGraphique" component={PaletteGraphique} />
               <Route exact path="/login" component={Auth} />
               <Route exact path="/register" component={Auth} />
+              <PrivateRoute exact path="/myprofil/:id" component={MyProfil} />
               <Route exact path="/moredetailsproduct/:id" component={MoreDetailsProduct} />
               <Route exact path="/getallproduct" component={GetAllProduct} />
               <Route exact path="/getSeminaries" component={GetSeminaries} />

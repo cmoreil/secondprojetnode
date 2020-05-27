@@ -5,7 +5,9 @@ function Welcome(){
 
     let username = localStorage.getItem("username");
     return (
-        <div> <h1>Bienvenu {username} !</h1></div>
+        <div>
+            <h1>Vous êtes {username}</h1>
+        </div>
     )
 }
 

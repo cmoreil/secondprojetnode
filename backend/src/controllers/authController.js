@@ -129,9 +129,16 @@ async function deleteUser (req, res, next) {
       .catch(error => res.status(400).json({ error }));
 };
 
+async function updateUser (req, res, next) {
+  User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+    .then(() => res.status(200).json({ message: 'User updated !'}))
+    .catch(error => res.status(400).json({ error }));
+};
+
 exports.login = login;
 exports.register = register;
 exports.getUser = getUser;
 exports.getLastUser = getLastUser;
 exports.getByIdUser = getByIdUser;
 exports.deleteUser = deleteUser;
+exports.updateUser = updateUser;

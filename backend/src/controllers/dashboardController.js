@@ -12,7 +12,7 @@ exports.validate = (method) => {
      return [
       check('username', 'Username doesn\'t exists and/or is not between 3 and 20 characters').exists().isLength({ min: 3, max: 20 }),
       check('title', 'Title doesn\'t exists and/or is not between 1 and 60 characters').exists().isLength({ min: 1, max: 60 }),
-      check('content', 'Content doesn\'t exists and/or is not between 1 and 140 characters').exists().isLength({ min: 1, max: 140 })
+      check('content', 'Content doesn\'t exists and/or is not between 1 and 200 characters').exists().isLength({ min: 1, max: 200 })
       ]
     }
   }
@@ -78,8 +78,15 @@ async function deleteComment (req, res, next) {
       .catch(error => res.status(400).json({ error }));
 };
 
+async function updateComment (req, res, next) {
+  Comment.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+    .then(() => res.status(200).json({ message: 'Comment updated !'}))
+    .catch(error => res.status(400).json({ error }));
+};
+
 exports.getComment = getComment;
 exports.postComment = postComment;
 exports.getLastComment = getLastComment;
 exports.getByIdComment = getByIdComment;
 exports.deleteComment = deleteComment;
+exports.updateComment = updateComment;

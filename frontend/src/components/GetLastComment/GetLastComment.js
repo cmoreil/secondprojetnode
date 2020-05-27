@@ -37,7 +37,7 @@ export class GetLastComment extends React.Component {
                 <h3>
                     <ul className="Getlastcomment">
                     <h1>Fil de billets d'humeur</h1>
-                    <li key= {comment.title}> <h2>{comment.title}, par {comment.username} </h2>
+                    <li key= {comment.username}> <h2>{comment.title}, par {comment.username} </h2>
                         <p> {comment.content} </p>
                         <p> {comment.created_at} </p>
                         </li>

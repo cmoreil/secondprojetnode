@@ -16,8 +16,7 @@ export class Headerbar extends React.Component {
               <Nav>
                 <Nav.Link className="Navlink" href="/">Home</Nav.Link>
                 <Nav.Link className="Navlink" href="/about">A propos de nous</Nav.Link>
-                <Nav.Link className="Navlink" href="/login">Se connecter</Nav.Link>
-                <Nav.Link className="Navlink" href="/register">S'inscrire</Nav.Link>
+                <Nav.Link className="Navlink" href="/login">Se connecter / S'inscrire</Nav.Link>
                 <Nav.Link className="Navlink" href="/dashboard">Mon espace</Nav.Link>
               </Nav>
               </Navbar>

@@ -1,18 +1,16 @@
 .CartelLastUser {
-    font-size: 0.5em;
-    padding: auto;
-    margin-top: 20px;
+    font-size: 0.7em;
+    padding: 5px;
+    margin-top:20px;
     height: auto;
     width: auto;
     border: 1px solid;
     border-color: #d1f5be;
     border-radius: 15px;
-    color: #1a936f ;
     border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     overflow-wrap : break-word;
+    line-height:1.2em;
+    text-align: center;
 }
 
 h1 {
@@ -20,7 +18,6 @@ h1 {
     text-align: center;
 }
 
-h2 {
-    text-align: center;
-    color: #4b3b40
+.username {
+    color: black;
 }

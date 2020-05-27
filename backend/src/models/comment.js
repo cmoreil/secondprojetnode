@@ -6,7 +6,8 @@ const commentSchema = mongoose.Schema({
   username: { type: String, required: true, lowercase: true },
   content: { type: String, required: true, unique: true },
   created_at: {type: String, required: true },
-  recomment: [{ content: String }]
+  recomments: [ {name: String, body: String, date: String}] ,
+  votes: { Type: Number}
 });
 
 commentSchema.plugin(uniqueValidator);

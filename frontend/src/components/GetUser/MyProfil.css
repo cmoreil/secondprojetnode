@@ -1,0 +1,29 @@
+.Allpage {
+    margin-top: 30px;
+    padding: 15px;
+}
+
+.MyProfil {
+    border-right: solid 1px;
+    border-color: #1a936f;
+}
+
+.Fields {
+    padding: 5px;
+}
+
+.updateInput {
+    box-sizing: border-box;
+    margin-top:20px;
+}
+
+.updateButton {
+    color: #1a936f;
+    text-align: center;
+    margin-top:20px;
+}
+
+.Titlecardprofil {
+    text-align: left;
+    color: #4b3b40;
+}

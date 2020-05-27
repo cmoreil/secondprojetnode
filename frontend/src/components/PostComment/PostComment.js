@@ -14,7 +14,7 @@ export class PostComment extends React.Component {
     const { title } = this.state;
     const { content } = this.state;
     if (!title || title.length === 0 || title.length > 60) return;
-    if (!content || content.length === 0 || content.lenth > 140) return;
+    if (!content || content.length === 0 || content.lenth > 200) return;
 
     try {
       const { data } = await API.postComment({ username, title, content });
@@ -33,7 +33,7 @@ export class PostComment extends React.Component {
     const { username, title, content } = this.state;
     return (
       <div className="PostComment">
-        <FormGroup controlId="title" bsSize="normal">
+        <FormGroup controlId="title">
           <FormLabel>Titre</FormLabel>
             <FormControl className="Inputpost"
               autoFocus
@@ -42,7 +42,7 @@ export class PostComment extends React.Component {
               type="string"
             />
         </FormGroup>
-        <FormGroup controlId="content" bsSize="normal">
+        <FormGroup controlId="content">
           <FormLabel>Mon commentaire du jour</FormLabel>
             <FormControl className="Post"
               autoFocus
@@ -52,7 +52,7 @@ export class PostComment extends React.Component {
             />
         </FormGroup>
 
-        <Button className="Button" onClick={this.send} block bsSize="normal" type="submit">Publier !</Button>
+        <Button className="Button" onClick={this.send} type="submit">Publier !</Button>
       </div>
     );
   }

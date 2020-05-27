@@ -8,5 +8,6 @@ router.get('/getComment', dashboardController.getComment);
 router.get('/getLastComment', dashboardController.getLastComment);
 router.get('/getByIdComment/:id', dashboardController.getByIdComment);
 router.get('/deleteComment/:id', dashboardController.deleteComment);
+router.put('/updateComment/:id', dashboardController.updateComment);
 
 module.exports = router;

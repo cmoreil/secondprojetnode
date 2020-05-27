@@ -16,12 +16,19 @@ export class Getuser extends React.Component {
         console.log(data.user);
         }
 
+        showMyProfil = (id) => {
+            this.props.history.push({
+              pathname: '/myprofil/' +id,
+            })
+        }
+
     render() {
         return (
             <div className="CartelUser">
             {this.state.users.map(user => (
                 <ul key= {user._id}> {user.username}
                 <p>le {user.created_at}</p>
+                <button className="Button" onClick={()=>this.showMyProfil(user._id)}>Mes informations</button>
                 </ul>
                 ))}
             </div>
