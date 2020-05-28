@@ -59,7 +59,7 @@ export default {
   getByIdUser: function(id) {
     return axios.get(`${burl}/auth/getByIdUser/` + id);
   },
-  updateUser: function(send){
-    return axios.post(`${burl}/auth/register`, send, { headers: headers });
+  updateUser: function(id, send){
+    return axios.put(`${burl}/auth/updateUser/`+ id, send);
   }
 };

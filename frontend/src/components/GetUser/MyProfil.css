@@ -20,10 +20,15 @@
 .updateButton {
     color: #1a936f;
     text-align: center;
-    margin-top:20px;
+    margin-top:90px;
 }
 
 .Titlecardprofil {
     text-align: left;
     color: #4b3b40;
+}
+
+.Question {
+    color: #4b3b40;
+    font-weight: bold;
 }

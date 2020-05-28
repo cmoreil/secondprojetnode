@@ -49,6 +49,7 @@ exports.validate = (method) => {
       user.save()
       .then(() => res.status(201).json({
         userId: user._id,
+        email: user.email,
         username: user.username,
         admin: user.admin,
         token: jwt.sign(
@@ -129,11 +130,16 @@ async function deleteUser (req, res, next) {
       .catch(error => res.status(400).json({ error }));
 };
 
-async function updateUser (req, res, next) {
-  User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
-    .then(() => res.status(200).json({ message: 'User updated !'}))
-    .catch(error => res.status(400).json({ error }));
-};
+async function updateUser (req, res) {
+  User.findByIdAndUpdate ( req.params.id,
+    {$set: { username: req.body.username, email: req.body.email, password: req.body.password}},
+    {new: true},
+    function (err, editUser){
+      if(err) { res.send("error updating user")}
+      else { res.json(editUser)}
+    }
+  )
+}
 
 exports.login = login;
 exports.register = register;

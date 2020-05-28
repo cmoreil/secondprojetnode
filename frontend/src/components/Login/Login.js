@@ -22,6 +22,8 @@ export class Login extends React.Component {
       localStorage.setItem("userId", data.userId);
       localStorage.setItem("username", data.username);
       localStorage.setItem("admin", data.admin);
+      localStorage.setItem("email", data.email);
+      localStorage.setItem("password", data.password);
       window.location = "/dashboard";
     } catch (error) {
       console.error(error);
