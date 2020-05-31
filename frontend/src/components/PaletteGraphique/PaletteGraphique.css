@@ -26,6 +26,7 @@
   }
   .test10 {
     background-color: #4b3b40;
+    opacity: 0.5;
     width: 20%;
     height: 35px;
   }

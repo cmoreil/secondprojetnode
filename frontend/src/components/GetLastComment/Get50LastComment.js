@@ -1,8 +1,7 @@
 import React from "react";
 import { Card } from 'react-bootstrap';
 import API from "../../utils/API";
-import Button from '@material-ui/core/Button';
-import ComDialog from "../Dialog/ComDialog.js"
+import ComDialog from "../Dialog/ComDialog.js";
 import './Get50LastComment.css';
 
 export class Get50LastComment extends React.Component {
@@ -30,7 +29,7 @@ export class Get50LastComment extends React.Component {
                     <Card.Body>
                         <Card.Title className="TitleCard">{comment.title}</Card.Title>
                             <Card.Text>
-                                <p className="FontCard">par {comment.username}</p>
+                                <p className="FontCardtitle">par {comment.username}</p>
                                 <p className="FontCard"> {comment.content} </p>
                                 <p className="FontCard"> {comment.created_at} </p>
                                 <p className="Comdialog"><ComDialog id={comment._id}/></p>

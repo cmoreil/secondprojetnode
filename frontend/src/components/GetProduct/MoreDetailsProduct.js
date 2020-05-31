@@ -25,7 +25,7 @@ export class MoreDetailsProduct extends React.Component {
             product = (
                 <Card>
                     <Card.Body className="Card">
-                    <Card.Title><h1>{ this.state.product.title }</h1></Card.Title>
+                    <Card.Title><h1 className="Titremoredetails">{ this.state.product.title }</h1></Card.Title>
                         <Card.Subtitle className="Soustitre"><h2>{ this.state.product.type }</h2></Card.Subtitle>
                         <Card.Text className="Text">
                         <p>{ this.state.product.description }</p>

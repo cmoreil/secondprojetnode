@@ -20,7 +20,7 @@ export default function ComDialog(props) {
 
   return (
     <div>
-      <FaReply color="#4b3b40" size={18} onClick={handleClickOpen} />
+      <FaReply color="#4b3b40" size={22} onClick={handleClickOpen} />
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Commenter un commentaire</DialogTitle>
         <DialogContent>

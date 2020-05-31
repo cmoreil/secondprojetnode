@@ -5,17 +5,29 @@
 }
 
 .Card {
-    background-color: #d1f5be;
     border-radius: 5px;
 }
 
 .TitleCard {
     border-bottom: solid 1px;
-    border-color: #9cde9f;
+    border-color: #1a936f;
+    background-image: url("../../assets/croissancesemis.jpg");
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .FontCard {
     font-size: 0.8em;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.FontCardtitle {
+    font-size: 0.8em;
+    font-weight: 700;
+    text-align: center;
 }
 
 h2 {

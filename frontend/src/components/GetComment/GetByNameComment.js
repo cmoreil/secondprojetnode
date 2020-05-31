@@ -30,14 +30,14 @@ export class GetByNameComment extends React.Component {
         let comments = <p> A ce jour, vous n'avez jamais posté de commentaire. </p>;
         if (this.state.comments) {
             comments = (
-                <div className="AllSection">
-                <h2>Mon fil de commentaires</h2>
+                <div className="AllSectionperso">
+                <h2>Mon fil d'actualité</h2>
                 {this.state.comments.map(comment => (
                     <Card className="Card">
                     <Card.Body>
                         <Card.Title className="TitleCard">{comment.title}</Card.Title>
                             <Card.Text>
-                                <p className="FontCard">{this.props.username}</p>
+                                <p className="FontCardtitle">{this.props.username}</p>
                                 <p className="FontCard"> {comment.content} </p>
                                 <p className="FontCard"> {comment.created_at} </p>
                             </Card.Text>
