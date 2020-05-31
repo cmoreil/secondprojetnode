@@ -55,8 +55,8 @@ export class Login extends React.Component {
             type="password"
           />
         </FormGroup>
-        <Button className="Button" onClick={this.send} block type="submit">
-          Connexion
+        <Button className="ButtonLogin" onClick={this.send} block type="submit">
+          Se connecter
         </Button>
       </div>
     );

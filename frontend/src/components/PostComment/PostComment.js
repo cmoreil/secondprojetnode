@@ -51,8 +51,7 @@ export class PostComment extends React.Component {
               type="string"
             />
         </FormGroup>
-
-        <Button className="Button" onClick={this.send} type="submit">Publier !</Button>
+        <Button className="ButtonPost" onClick={this.send} type="submit">Publier !</Button>
       </div>
     );
   }

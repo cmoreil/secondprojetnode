@@ -97,7 +97,7 @@ async function login (req, res, next) {
 async function getLastUser(req, res, next) {
   User.find()
     .sort({_id: -1})
-    .limit(10)
+    .limit(5)
     .then(user => {
       if (!user) {
         return res.status(401).json({ error: 'No user !' });

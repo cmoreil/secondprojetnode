@@ -2,3 +2,25 @@
     margin-top: 20px;
     margin-bottom:50px;
 }
+
+.LinkDialog {
+    text-align: center;
+}
+
+.Dialog {
+    margin: auto;
+}
+
+.Getlastusercaroussel {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 0.6em;
+}
+
+.IconesDash {
+    margin-top: 15px;
+}
+
+.Getbyname {
+    margin-top: 15px;
+}

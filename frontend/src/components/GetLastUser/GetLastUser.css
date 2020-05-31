@@ -1,13 +1,10 @@
 .CartelLastUser {
     font-size: 0.7em;
     padding: 5px;
-    margin-top:20px;
-    height: auto;
-    width: auto;
+    width: 75%;
     border: 1px solid;
     border-color: #d1f5be;
-    border-radius: 15px;
-    border-radius: 15px;
+    border-radius: 5px;
     overflow-wrap : break-word;
     line-height:1.2em;
     text-align: center;

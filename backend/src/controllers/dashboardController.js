@@ -66,8 +66,29 @@ async function getLastComment (req, res, next) {
     .catch(error => res.status(500).json({ error }));
 };
 
+
+async function get50LastComment (req, res, next) {
+  Comment.find()
+    .sort({_id: -1})
+    .limit(50)
+    .then(comment => {
+      if (!comment) {
+        return res.status(401).json({ error: 'No comment !' });
+      }
+      res.status(201).json({ comment });
+    })
+    .catch(error => res.status(500).json({ error }));
+};
+
 async function getByIdComment (req, res, next) {
   Comment.findOne({ _id: req.params.id })
+  .then(comment => res.status(200).json(comment))
+  .catch(error => res.status(404).json({ error }));
+};
+
+async function getByNameComment (req, res, next) {
+  Comment.find({ username: req.params.username})
+  .sort({_id: -1})
   .then(comment => res.status(200).json(comment))
   .catch(error => res.status(404).json({ error }));
 };
@@ -78,15 +99,32 @@ async function deleteComment (req, res, next) {
       .catch(error => res.status(400).json({ error }));
 };
 
-async function updateComment (req, res, next) {
+/*async function updateComment (req, res, next) {
   Comment.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
     .then(() => res.status(200).json({ message: 'Comment updated !'}))
     .catch(error => res.status(400).json({ error }));
-};
+};*/
+
+async function updateComment (req, res) {
+  today = new Date();
+  date = today.toLocaleDateString();
+  time = today.toLocaleTimeString("fr-FR");
+  dateTime = date+'  '+time;
+  Comment.findByIdAndUpdate ( req.params.id,
+    {$set: { ...req.body}},
+    {new: true},
+    function (err, editComment){
+      if(err) { res.send("error updating comment")}
+      else { res.json(editComment)}
+    }
+  )
+}
 
 exports.getComment = getComment;
 exports.postComment = postComment;
 exports.getLastComment = getLastComment;
+exports.get50LastComment = get50LastComment;
 exports.getByIdComment = getByIdComment;
 exports.deleteComment = deleteComment;
 exports.updateComment = updateComment;
+exports.getByNameComment = getByNameComment;

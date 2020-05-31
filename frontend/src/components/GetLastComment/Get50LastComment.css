@@ -1,0 +1,30 @@
+.AllSection {
+    border-right: solid 1px;
+    border-color: #1a936f;
+    overflow-wrap : break-word;
+}
+
+.Card {
+    background-color: #d1f5be;
+    border-radius: 5px;
+}
+
+.TitleCard {
+    border-bottom: solid 1px;
+    border-color: #9cde9f;
+}
+
+.FontCard {
+    font-size: 0.8em;
+}
+
+h2 {
+    color: #4b3b40;
+    text-align: center;
+}
+
+
+.FaReply {
+    text-align: right;
+    margin-right: 15px;
+}

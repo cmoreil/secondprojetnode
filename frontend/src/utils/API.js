@@ -35,6 +35,9 @@ export default {
   getLastComment: function() {
     return axios.get(`${burl}/dashboard/getLastComment`);
   },
+  get50LastComment: function() {
+    return axios.get(`${burl}/dashboard/get50LastComment`);
+  },
   getLastUser: function() {
     return axios.get(`${burl}/auth/getLastUser`);
   },
@@ -59,7 +62,13 @@ export default {
   getByIdUser: function(id) {
     return axios.get(`${burl}/auth/getByIdUser/` + id);
   },
+  getByNameComment: function(username) {
+    return axios.get(`${burl}/dashboard/getByNameComment/` + username);
+  },
   updateUser: function(id, send){
     return axios.put(`${burl}/auth/updateUser/`+ id, send);
+  },
+  updateComment: function(id, send){
+    return axios.put(`${burl}/dashboard/updateComment/`+ id, send);
   }
 };
