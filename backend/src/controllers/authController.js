@@ -2,6 +2,15 @@ const User = require('../models/user')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator/check');
+const nodemailer = require('nodemailer');
+const sendGridTransport = require('nodemailer-sendgrid-transport');
+
+//pour envoyer des emails de conf :
+const transporter = nodemailer.createTransport(sendGridTransport({
+  auth: {
+    api_key: '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'
+  }
+})); //on créé une méthode
 
 exports.getLogin = (req, res, next) => {
     res.render('auth/login', { title: 'login' });

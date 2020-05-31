@@ -13,8 +13,9 @@ export class PostComment extends React.Component {
     const { username } = this.state;
     const { title } = this.state;
     const { content } = this.state;
-    if (!title || title.length === 0 || title.length > 60) return;
-    if (!content || content.length === 0 || content.lenth > 200) return;
+    if (!username || username.length === 0 || username.length > 25) return (alert("Vous avez oublié de compléter votre pseudo ou ce dernier est trop long (max.25 caractères) !"));
+    if (!title || title.length === 0 || title.length > 60) return (alert("Vous avez oublié de renseigner un titre ou ce dernier est trop long (max.60 caractères) !"));
+    if (!content || content.length === 0 || content.length > 200) return (alert("Vous avez oublié d'écrire un message ou ce dernier est trop long (max.200 caractères) !"));
 
     try {
       const { data } = await API.postComment({ username, title, content });

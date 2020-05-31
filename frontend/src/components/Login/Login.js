@@ -11,10 +11,10 @@ export class Login extends React.Component {
   send = async () => {
     const { email, password } = this.state;
     if (!email || email.length === 0) {
-      return;
+      return (alert("Vous avez oublié de compléter votre email !"));
     }
     if (!password || password.length === 0) {
-      return;
+      return (alert("Vous avez oublié de compléter votre mot de passe !"));
     }
     try {
       const { data } = await API.login(email, password);

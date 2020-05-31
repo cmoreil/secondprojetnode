@@ -12,8 +12,8 @@ export class Register extends React.Component {
   };
   send = async () => {
     const { email, password, cpassword, username } = this.state;
-    if (!email || email.length === 0) return;
-    if (!password || password.length === 0 || password !== cpassword) return;
+    if (!email || email.length === 0) return (alert("Vous avez oublié de compléter votre email !"));
+    if (!password || password.length === 0 || password !== cpassword) return (alert("Vous avez oublié de compléter votre mot de passe ou votre votre de passe et votre confirmation sont différentes !"));
     try {
       const { data } = await API.register({ email, password, username });
       localStorage.setItem("token", data.token);
@@ -32,12 +32,6 @@ export class Register extends React.Component {
       [event.target.id]: event.target.value
     });
   };
-
-  /*handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }*/
-
 
   render() {
     const { email, password, cpassword, username } = this.state;
