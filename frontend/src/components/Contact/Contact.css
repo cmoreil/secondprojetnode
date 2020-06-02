@@ -1,0 +1,23 @@
+.Contact {
+    box-sizing: border-box;
+    padding: 15px;
+    margin-bottom:5px;
+}
+
+.InputEmail {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.InputMessage {
+    width: 100%;
+    height: 120px;
+    box-sizing: border-box;
+}
+
+.ButtonPost {
+    color: #1a936f;
+    text-align: center;
+    margin-top: 30px;
+    width: 100%;
+}

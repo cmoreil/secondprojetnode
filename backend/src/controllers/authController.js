@@ -5,12 +5,12 @@ const { check, validationResult } = require('express-validator/check');
 const nodemailer = require('nodemailer');
 const sendGridTransport = require('nodemailer-sendgrid-transport');
 
-//pour envoyer des emails de conf :
+/*pour envoyer des emails de conf :
 const transporter = nodemailer.createTransport(sendGridTransport({
   auth: {
-    api_key: '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'
-  }
-})); //on créé une méthode
+      api_user: 'caroline.moreil@epitech.eu',
+      api_key: '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'
+    }})); //on créé une méthode*/
 
 exports.getLogin = (req, res, next) => {
     res.render('auth/login', { title: 'login' });
@@ -35,7 +35,6 @@ exports.validate = (method) => {
   async function register (req, res, next) {
 
       const errors = validationResult(req); // Finds the validation errors in this request and wraps them in an object with handy functions
-
       if (!errors.isEmpty()) {
         res.status(422).json({ errors: errors.array() });
         return;
@@ -54,101 +53,110 @@ exports.validate = (method) => {
         username: req.body.username,
         created_at: dateTime
       })
-
       user.save()
-      .then(() => res.status(201).json({
-        userId: user._id,
-        email: user.email,
-        username: user.username,
-        admin: user.admin,
-        token: jwt.sign(
-          { userId: user._id },
-          'RANDOM_TOKEN_SECRET',
-          { expiresIn: '24h' }
-          )
-        }))
+
+      .then(() => {
+        res.status(201).json({
+          userId: user._id,
+          email: user.email,
+          username: user.username,
+          admin: user.admin,
+          token: jwt.sign(
+            { userId: user._id },
+            'RANDOM_TOKEN_SECRET',
+            { expiresIn: '24h' }
+            )
+          })
+          /*return transport.sendMail({
+            from: 'monpotagerurbain@permaculture.org',
+            to: user.email,
+            subject: 'Votre inscription est une réussite !',
+            text: 'Bonjour, nous avons le plaisir de vous confirmer que votre inscription est désormais enregistrée ! Bien cordialement, toute l\'équipe de Mon potager urbain',
+            html: '<p>Bonjour, nous avons le plaisir de vous confirmer que votre inscription est désormais enregistrée ! Bien cordialement, toute l\'équipe de Mon potager urbain</p>'
+        })*/
+      })
         .catch(error => res.status(400).json({ error }));
     })
     .catch(error => res.status(500).json({ error }));
+};
+
+  async function login (req, res, next) {
+      User.findOne({ email: req.body.email })
+        .then(user => {
+          if (!user) {
+            return res.status(401).json({ error: 'User not find!' });
+          }
+          bcrypt.compare(req.body.password, user.password)
+            .then(valid => {
+              if (!valid) {
+                return res.status(401).json({ error: 'Incorrect password !' });
+              }
+              res.status(200).json({
+                userId: user._id,
+                username: user.username,
+                admin: user.admin,
+                token: jwt.sign(
+                  { userId: user._id },
+                  'RANDOM_TOKEN_SECRET',
+                  { expiresIn: '24h' }
+                )
+              });
+              let headers = new Headers();
+              headers.append("Authorization","Beared "+ token);
+              this.http.post(AUTHENTICATION_ENDPOINT + "?grant_type=password&scope=trust&username=" + login + "&password=" + password, null, {headers: headers}).subscribe(response => {
+                console.log(response);
+              });
+            })
+        })
+        .catch(error => res.status(500).json({ error }));
   };
 
-async function login (req, res, next) {
-    User.findOne({ email: req.body.email })
+  async function getLastUser(req, res, next) {
+    User.find()
+      .sort({_id: -1})
+      .limit(10)
       .then(user => {
         if (!user) {
-          return res.status(401).json({ error: 'User not find!' });
+          return res.status(401).json({ error: 'No user !' });
         }
-        bcrypt.compare(req.body.password, user.password)
-          .then(valid => {
-            if (!valid) {
-              return res.status(401).json({ error: 'Incorrect password !' });
-            }
-            res.status(200).json({
-              userId: user._id,
-              username: user.username,
-              admin: user.admin,
-              token: jwt.sign(
-                { userId: user._id },
-                'RANDOM_TOKEN_SECRET',
-                { expiresIn: '24h' }
-              )
-            });
-            let headers = new Headers();
-            headers.append("Authorization","Beared "+ token);
-            this.http.post(AUTHENTICATION_ENDPOINT + "?grant_type=password&scope=trust&username=" + login + "&password=" + password, null, {headers: headers}).subscribe(response => {
-              console.log(response);
-            });
-          })
+        res.status(201).json({ user });
       })
       .catch(error => res.status(500).json({ error }));
-};
+  };
 
-async function getLastUser(req, res, next) {
-  User.find()
-    .sort({_id: -1})
-    .limit(10)
-    .then(user => {
-      if (!user) {
-        return res.status(401).json({ error: 'No user !' });
+  async function getUser(req, res, next) {
+    User.find()
+      .then(user => {
+        if (!user) {
+          return res.status(401).json({ error: 'No user !' });
+        }
+        res.status(201).json({ user });
+      })
+      .catch(error => res.status(500).json({ error }));
+  };
+
+  async function getByIdUser (req, res, next) {
+    User.findOne({ _id: req.params.id })
+    .then(user => res.status(200).json(user))
+    .catch(error => res.status(404).json({ error }));
+  };
+
+  async function deleteUser (req, res, next) {
+    User.deleteOne({ _id: req.params.id })
+        .then(() => res.status(200).json({ message: 'User deleted :('}))
+        .catch(error => res.status(400).json({ error }));
+  };
+
+  async function updateUser (req, res) {
+    User.findByIdAndUpdate ( req.params.id,
+      {$set: { username: req.body.username, email: req.body.email, password: req.body.password}},
+      {new: true},
+      function (err, editUser){
+        if(err) { res.send("error updating user")}
+        else { res.json(editUser)}
       }
-      res.status(201).json({ user });
-    })
-    .catch(error => res.status(500).json({ error }));
-};
-
-async function getUser(req, res, next) {
-  User.find()
-    .then(user => {
-      if (!user) {
-        return res.status(401).json({ error: 'No user !' });
-      }
-      res.status(201).json({ user });
-    })
-    .catch(error => res.status(500).json({ error }));
-};
-
-async function getByIdUser (req, res, next) {
-  User.findOne({ _id: req.params.id })
-  .then(user => res.status(200).json(user))
-  .catch(error => res.status(404).json({ error }));
-};
-
-async function deleteUser (req, res, next) {
-  User.deleteOne({ _id: req.params.id })
-      .then(() => res.status(200).json({ message: 'User deleted :('}))
-      .catch(error => res.status(400).json({ error }));
-};
-
-async function updateUser (req, res) {
-  User.findByIdAndUpdate ( req.params.id,
-    {$set: { username: req.body.username, email: req.body.email, password: req.body.password}},
-    {new: true},
-    function (err, editUser){
-      if(err) { res.send("error updating user")}
-      else { res.json(editUser)}
-    }
-  )
-}
+    )
+  }
 
 exports.login = login;
 exports.register = register;

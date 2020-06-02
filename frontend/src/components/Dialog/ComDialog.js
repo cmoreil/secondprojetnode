@@ -28,7 +28,7 @@ export default function ComDialog(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>
-            Cancel
+            Annuler
           </Button>
         </DialogActions>
       </Dialog>

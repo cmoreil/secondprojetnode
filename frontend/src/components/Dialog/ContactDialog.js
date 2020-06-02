@@ -4,9 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { PostComment } from "../PostComment/PostComment.js";
-import { FaCarrot } from "react-icons/fa";
-import { GiSpade } from "react-icons/gi";
+import { Contact } from "../Contact/Contact.js";
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -21,11 +19,11 @@ export default function FormDialog() {
 
   return (
     <div>
-      <GiSpade color="orange" size={25} onClick={handleClickOpen} /> <Button onClick={handleClickOpen}>Poster un commentaire</Button> <FaCarrot color="orange" size={25} onClick={handleClickOpen} />
+      <p onClick={handleClickOpen}>Pour nous contacter (cliquer ici)</p>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Poster un commentaire</DialogTitle>
+        <DialogTitle id="form-dialog-title">Nous contacter</DialogTitle>
         <DialogContent>
-            <PostComment />
+            <Contact />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>
