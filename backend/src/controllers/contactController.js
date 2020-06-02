@@ -42,8 +42,8 @@ async function postContact (req, res, next) {
             console.log('Email sent: ' + info.response);
           }
         });
-      }
-    ).catch(
+      })
+      .catch(
       (error) => {
         res.status(400).json({
           error: error

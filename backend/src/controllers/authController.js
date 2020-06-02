@@ -2,6 +2,15 @@ const User = require('../models/user')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator/check');
+const nodemailer = require('nodemailer');
+const transport = nodemailer.createTransport({
+  host: 'smtp.office365.com',
+  port: 587,
+  auth: {
+     user: 'caroline.moreil@epitech.eu',
+     pass: 'n?UYtEDO'
+  }
+});
 
 exports.getLogin = (req, res, next) => {
     res.render('auth/login', { title: 'login' });
@@ -31,6 +40,13 @@ exports.validate = (method) => {
         return;
       }
 
+      mailOptions = {
+        from: 'caroline.moreil@epitech.eu',
+        to: req.body.email,
+        subject: 'Merci pour votre inscription',
+        html: '<p>Bonjour, nous vous confirmons votre inscription et nous vous en félicitons. A bientôt sur Monpotagerurbain.org ! Bien cordialement, Toute l\'équipe de Mon potager urbain.</p>'
+      }
+
       today = new Date();
       date = today.toLocaleDateString();
       time = today.toLocaleTimeString("fr-FR");
@@ -46,19 +62,27 @@ exports.validate = (method) => {
       })
       user.save()
 
-      .then(() => {
-        res.status(201).json({
-          userId: user._id,
-          email: user.email,
-          username: user.username,
-          admin: user.admin,
-          token: jwt.sign(
-            { userId: user._id },
-            'RANDOM_TOKEN_SECRET',
-            { expiresIn: '24h' }
-            )
-          })
-      })
+      .then(
+        result => {
+          res.status(201).json({
+            userId: user._id,
+            email: user.email,
+            username: user.username,
+            admin: user.admin,
+            token: jwt.sign(
+              { userId: user._id },
+              'RANDOM_TOKEN_SECRET',
+              { expiresIn: '24h' }
+              )
+            });
+        return transport.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+          });
+        })
         .catch(error => res.status(400).json({ error }));
     })
     .catch(error => res.status(500).json({ error }));
