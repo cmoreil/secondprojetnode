@@ -70,5 +70,8 @@ export default {
   },
   updateComment: function(id, send){
     return axios.put(`${burl}/dashboard/updateComment/`+ id, send);
+  },
+  postContact: function(send) {
+    return axios.post(`${burl}/contact/postContact`, send, {headers: headers});
   }
 };

@@ -2,15 +2,6 @@ const User = require('../models/user')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator/check');
-const nodemailer = require('nodemailer');
-const sendGridTransport = require('nodemailer-sendgrid-transport');
-
-/*pour envoyer des emails de conf :
-const transporter = nodemailer.createTransport(sendGridTransport({
-  auth: {
-      api_user: 'caroline.moreil@epitech.eu',
-      api_key: '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'
-    }})); //on créé une méthode*/
 
 exports.getLogin = (req, res, next) => {
     res.render('auth/login', { title: 'login' });
@@ -67,13 +58,6 @@ exports.validate = (method) => {
             { expiresIn: '24h' }
             )
           })
-          /*return transport.sendMail({
-            from: 'monpotagerurbain@permaculture.org',
-            to: user.email,
-            subject: 'Votre inscription est une réussite !',
-            text: 'Bonjour, nous avons le plaisir de vous confirmer que votre inscription est désormais enregistrée ! Bien cordialement, toute l\'équipe de Mon potager urbain',
-            html: '<p>Bonjour, nous avons le plaisir de vous confirmer que votre inscription est désormais enregistrée ! Bien cordialement, toute l\'équipe de Mon potager urbain</p>'
-        })*/
       })
         .catch(error => res.status(400).json({ error }));
     })
