@@ -1,5 +1,6 @@
 import React from "react";
 import API from "../../utils/API";
+import {Button} from "react-bootstrap";
 import './GetProduct.css';
 import { FaCarrot } from "react-icons/fa";
 
@@ -34,7 +35,8 @@ export class GetSeminaries extends React.Component {
                                 <p> { product.description} </p>
                                 <p> {product.price} € </p>
                                 <p> du {product.startDate} au {product.endDate} </p>
-                            <button className="Button" onClick={()=>this.showProductDetails(product._id)}>Plus de détails</button>
+                            <Button className="Button" onClick={()=>this.showProductDetails(product._id)}>Plus de détails</Button>
+                            <Button className="Button" onClick>Inscription</Button>
                         </li>
                     </ul>
                    ))}

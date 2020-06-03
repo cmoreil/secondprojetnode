@@ -74,7 +74,7 @@ export class Register extends React.Component {
             />
         </FormGroup>
 
-        <Button className="Button" onClick={this.send} block  type="submit">
+        <Button className="ButtonRegister" onClick={this.send} block  type="submit">
           S'inscrire
         </Button>
       </div>

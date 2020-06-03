@@ -35,6 +35,7 @@ export class GetTrainings extends React.Component {
                                 <p> {product.price} € </p>
                                 <p> du {product.startDate} au {product.endDate} </p>
                         <button className="Button" onClick={()=>this.showProductDetails(product._id)}>Plus de détails</button>
+                        <button className="Button" onClick>Inscription</button>
                         </li>
                     </ul>
                    ))}
