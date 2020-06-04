@@ -2,6 +2,7 @@ import React from "react";
 import { Nav, Navbar } from 'react-bootstrap';
 import { FaSeedling } from "react-icons/fa";
 import { FaHands } from "react-icons/fa";
+import { FaClipboardCheck } from "react-icons/fa";
 import './Headerbar.css';
 
 export class Headerbar extends React.Component {
@@ -18,6 +19,7 @@ export class Headerbar extends React.Component {
                 <Nav.Link className="Navlink" href="/about">A propos de nous</Nav.Link>
                 <Nav.Link className="Navlink" href="/login">Se connecter / S'inscrire</Nav.Link>
                 <Nav.Link className="Navlink" href="/dashboard">Mon espace</Nav.Link>
+                <FaClipboardCheck href="#" color="orange" size={20}/><span className="Badge">5 réservation(s)</span>
               </Nav>
               </Navbar>
             </Nav>

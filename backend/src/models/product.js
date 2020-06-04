@@ -7,8 +7,10 @@ const productSchema = mongoose.Schema({
   description: { type: String, required: true },
   startDate: { type: String, required: true, unique: true},
   endDate: { type: String, required: true, unique: true },
-  price: { type: Number, required: true }
+  price: { type: Number, required: true },
+  availableQty: {type: Number, required: true}
 });
 
 productSchema.plugin(uniqueValidator);
+
 module.exports = mongoose.model('product', productSchema);

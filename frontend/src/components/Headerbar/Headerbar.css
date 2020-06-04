@@ -24,7 +24,11 @@
 .Navlink {
     text-decoration: none;
     font-size: 1.2em;
-    margin: 10px;
+    margin: 12px;
     color: #4b3b40;
     font-weight: bold;
+}
+
+.Badge {
+    font-size: 0.7em;
 }

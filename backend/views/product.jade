@@ -4,7 +4,7 @@ block content
   div.
     <form id="myform" action="postProduct" method="post" enctype="application/x-www-form-urlencoded">
     <fieldset>
-      <legend>Product</legend>
+      <legend>Produit</legend>
       <div class="form-group">
         <label for="type">Séminaire</label>
         <input type="checkbox" id="type" name="type" value="séminaire">
@@ -12,7 +12,7 @@ block content
         <input type="checkbox" id="type" name="type" value="formation">
       </div>
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">Titre</label>
         <input type="text" class="form-control" id="title" placeholder="Title" name="title">
       </div>
       <div class="form-group">
@@ -26,9 +26,13 @@ block content
         <input type="date" class="form-control" id="endDate" placeholder="Date de fin" name="endDate" value="endDate">
       </div>
       <div class="form-group">
-        <label for="price">Price</label>
+        <label for="price">Prix</label>
         <input type="price" class="form-control" id="price" placeholder="Price" name="price">
       </div>
-      <button type="submit" class="btn btn-primary">Register</button>
+      <div class="form-group">
+        <label for="availableQty">Nbe places</label>
+        <input type="availableQty" class="form-control" id="availableQty" placeholder="nbe de places" name="availableQty">
+      </div>
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
     </fieldset>
     </form>

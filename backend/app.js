@@ -4,16 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require("mongoose");
-const expressValidator = require('express-validator')
+const expressValidator = require('express-validator');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 var indexRouter = require('./src/routes/index');
 var authRouter = require('./src/routes/auth');
 var dashboardRouter = require('./src/routes/dashboard');
 var productRouter = require ('./src/routes/product');
 var contactRouter = require('./src/routes/contact');
-//var registrationRouter = require('./src/routes/registration');
-
-
 
 
 //Connexion à la base de donnée
@@ -38,6 +37,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressValidator());
 
+//session of store
+app.use(session ({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({mongooseConnection: mongoose.connection}),
+  cookie: {maxAge: 180*60*1000}
+}));
+app.use(function(req, res, next){
+  res.locals.session = req.session;
+  next();
+})
+
 //Définition des CORS
 app.use(function(req, res, next) {
   res.setHeader(
@@ -59,7 +71,6 @@ app.use('/auth', authRouter);
 app.use('/dashboard', dashboardRouter);
 app.use('/product', productRouter);
 app.use('/contact', contactRouter);
-//app.use('/', registrationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

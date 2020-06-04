@@ -32,6 +32,7 @@ export class MoreDetailsProduct extends React.Component {
                         <p>{ this.state.product.price } €</p>
                         <p>du { this.state.product.startDate }</p>
                         <p>au { this.state.product.endDate }</p>
+                        <p>Nombre de places disponibles: { this.state.product.availableQty }</p>
                         </Card.Text>
                         <Button className="ButtonCard" onClick={this.send} block bsSize="normal" type="submit">S'inscrire</Button>
                     </Card.Body>
