@@ -11,6 +11,9 @@ var authRouter = require('./src/routes/auth');
 var dashboardRouter = require('./src/routes/dashboard');
 var productRouter = require ('./src/routes/product');
 var contactRouter = require('./src/routes/contact');
+//var registrationRouter = require('./src/routes/registration');
+
+
 
 
 //Connexion à la base de donnée
@@ -56,6 +59,7 @@ app.use('/auth', authRouter);
 app.use('/dashboard', dashboardRouter);
 app.use('/product', productRouter);
 app.use('/contact', contactRouter);
+//app.use('/', registrationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
