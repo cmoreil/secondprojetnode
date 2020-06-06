@@ -10,6 +10,7 @@ import { About } from "./components/About/About.js";
 import { Headerbar } from "./components/Headerbar/Headerbar.js";
 import { Footerbar } from "./components/Footerbar/Footerbar.js";
 import { GetAllProduct } from "./components/GetProduct/GetAllProduct.js";
+import { GetCart } from './components/Cart/GetCart.js';
 import { GetSeminaries } from "./components/GetProduct/GetSeminaries.js";
 import { GetTrainings } from "./components/GetProduct/GetTrainings.js";
 import { PaletteGraphique } from "./components/PaletteGraphique/PaletteGraphique.js";
@@ -30,6 +31,7 @@ function App() {
               <PrivateRoute exact path="/myprofil/:id" component={MyProfil} />
               <Route exact path="/moredetailsproduct/:id" component={MoreDetailsProduct} />
               <Route exact path="/getallproduct" component={GetAllProduct} />
+              <Route exact path="/getcart" component={GetCart} />
               <Route exact path="/getSeminaries" component={GetSeminaries} />
               <Route exact path="/getTrainings" component={GetTrainings} />
               <PrivateRoute path="/dashboard" component={Dashboard} />

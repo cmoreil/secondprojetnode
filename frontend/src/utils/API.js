@@ -73,5 +73,17 @@ export default {
   },
   postContact: function(send) {
     return axios.post(`${burl}/contact/postContact`, send, {headers: headers});
+  },
+  getCart: function(){
+    return axios.get(`${burl}/product/getCart`);
+  },
+  addToCart: function(id){
+    return axios.get(`${burl}/product/addToCart/` + id );
+  },
+  getChekout: function(){
+    return axios.get(`${burl}/product/getCheckout`);
+  },
+  checkout: function(send){
+    return axios.post(`${burl}/product/checkout`, send, {headers: headers});
   }
 };

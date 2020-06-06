@@ -9,17 +9,15 @@
     text-align: center;
 }
 
-.Cardhome {
-    width: 85%;
-}
-
 .Zoom div img {
     -webkit-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
+    -webkit-transition: .4s ease-in-out;
+    transition: .4s ease-in-out;
+    border-radius: 5px;
 }
 .Zoom div:hover img {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+    border-radius: 5px;
 }

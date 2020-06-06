@@ -8,19 +8,25 @@ export class MoreDetailsProduct extends React.Component {
         super(props);
         this.state = {
             product: null,
+            productId : ""
         };
       }
 
     async componentDidMount() {
         let productId = this.props.match.params.id;
+        this.setState({productId: productId})
         let product = await API.getByIdProduct(productId);
         let data = product.data;
         this.setState({ product: data });
     }
 
+    addToCart = async () => {
+        let response = await API.addToCart(this.state.productId);
+        this.props.history.push('/getCart');
+    }
+
     render() {
         let product = <p> Pas détail disponible ! </p>;
-        console.log(this.state.product)
         if (this.state.product) {
             product = (
                 <Card>
@@ -34,7 +40,7 @@ export class MoreDetailsProduct extends React.Component {
                         <p>au { this.state.product.endDate }</p>
                         <p>Nombre de places disponibles: { this.state.product.availableQty }</p>
                         </Card.Text>
-                        <Button className="ButtonCard" onClick={this.send} block bsSize="normal" type="submit">S'inscrire</Button>
+                        <Button className="ButtonCard" onClick={this.addToCart} block bsSize="normal" type="submit">S'inscrire</Button>
                     </Card.Body>
                 </Card>
             )

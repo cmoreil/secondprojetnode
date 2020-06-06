@@ -5,9 +5,6 @@ import { DiCoda } from "react-icons/di";
 import { FaSeedling } from "react-icons/fa";
 import { FaCarrot } from "react-icons/fa";
 import { FaHandHolding } from "react-icons/fa";
-import { FaCartArrowDown } from "react-icons/fa";
-import { FaCartPlus } from "react-icons/fa";
-import {FaClipboardCheck } from "react-icons/fa";
 
 export class PaletteGraphique extends Component {
   render() {
@@ -25,7 +22,6 @@ export class PaletteGraphique extends Component {
                 <p className= "test9"> blabla</p>
                 <p className= "test10"> blabla</p>
               </div>
-              <div><FaCartArrowDown /> <FaCartPlus /> <FaClipboardCheck /></div>
           </div>
     );
   }

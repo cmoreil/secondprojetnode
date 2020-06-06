@@ -56,6 +56,8 @@ async function getLastProduct (req, res, next) {
 };
 
 async function getSeminaries (req, res, next) {
+  console.log('look for session')
+  console.log(req.session.cart)
   Product.find()
   .where({price: 70})
   .then(product => res.status(200).json(product))
@@ -83,10 +85,12 @@ async function deleteProduct (req, res, next) {
 
 async function addToCart (req, res, next) {
   let productId = req.params.id;
-  let cart = new Cart(req.session.cart ? req.session.cart : {items: {}});
+  let cart = new Cart(req.session.cart ? req.session.cart : {});
   Product.findById(productId, function(err, product) {
     if (err) {
-      return res.status(401).json({error: 'This activity doesn\'t exist' });
+      return res.status(400).json({
+        text: "Wrong Id"
+      });
     }
     cart.add(product, product.id);
     req.session.cart = cart;
@@ -96,7 +100,9 @@ async function addToCart (req, res, next) {
 
 async function getCart (req, res, next) {
   if (!req.session.cart) {
-    return res.status(404).json({products: null});
+    return res.status(400).json({
+      text: "No reservation"
+    });
   }
   let cart = new Cart(req.session.cart);
   res.status(200).json({products: cart.generateArray(), totalPrice: cart.totalPrice});
@@ -104,7 +110,9 @@ async function getCart (req, res, next) {
 
 async function getCheckout (req, res, next) {
   if (!req.session.cart) {
-    return res.status(404).json({products: null});
+    return res.status(400).json({
+      text: "No cart"
+    });
   }
   let cart = new Cart(req.session.cart);
   res.status(200).json({ total: cart.totalPrice });
@@ -135,7 +143,20 @@ async function checkout (req, res, next) {
   );
 };
 
-// à faire delete et remove
+/* à faire remove et delete
+
+async function removeFromCart{
+  let productId = req.params.id;
+  let cart = new Cart(req.session.cart);
+  Product.findById(productId, function(err, product) {
+    if (err) {
+      return res.status(401).json({error: 'This activity doesn\'t exist' });
+    }
+    cart.removeFromCart(product, product.id);
+    req.session.cart = cart;
+    res.status(200).json({cart});
+  });
+};*/
 
 exports.postProduct = postProduct;
 exports.getProduct = getProduct;

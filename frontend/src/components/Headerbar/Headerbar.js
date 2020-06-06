@@ -1,8 +1,9 @@
 import React from "react";
-import { Nav, Navbar } from 'react-bootstrap';
+import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { FaSeedling } from "react-icons/fa";
 import { FaHands } from "react-icons/fa";
-import { FaClipboardCheck } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import { Searchbar } from "../Searchbar/Searchbar.js";
 import './Headerbar.css';
 
 export class Headerbar extends React.Component {
@@ -11,24 +12,24 @@ export class Headerbar extends React.Component {
     return (
       <div className="Background">
         <header>
-          <div>
-          <Nav defaultActiveKey="/" as="ul">
-            <Navbar bg="light" variant="light">
-              <Nav>
-                <Nav.Link className="Navlink" href="/">Home</Nav.Link>
-                <Nav.Link className="Navlink" href="/about">A propos de nous</Nav.Link>
-                <Nav.Link className="Navlink" href="/login">Se connecter / S'inscrire</Nav.Link>
-                <Nav.Link className="Navlink" href="/dashboard">Mon espace</Nav.Link>
-                <FaClipboardCheck href="#" color="orange" size={20}/><span className="Badge">5 réservation(s)</span>
-              </Nav>
-              </Navbar>
-            </Nav>
-          </div>
-            <div className="Icones">
-              <div><FaSeedling className="Semis" color="#1a936f" size={60}/></div>
+        <div className="Icones">
+          <br></br>
+              <div><FaSeedling className="Semis" color="#1a936f" size={50}/></div>
               <Navbar.Brand className="Titre" href="/">Mon potager urbain</Navbar.Brand>
-              <div><FaHands color="#82735c" size={70}/></div>
-            </div>
+              <div><FaHands color="#82735c" size={60}/></div>
+        </div>
+        <div className="Searchbar">
+          <Searchbar />
+        </div>
+        <div>
+            <ul className="Ulheader">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">A propos de nous</a></li>
+              <li><a href="/login">Mon compte</a></li>
+              <li><a href="/dashboard">Mon espace</a></li>
+              <li><a href="/getcart"><span>Réservation(s) en cours</span></a></li>
+            </ul>
+        </div>
         </header>
       </div>
     );

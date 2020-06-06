@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Button } from 'react-bootstrap';
 import { Container, Row, Col } from 'react-grid-system';
 import seedlings from '../../assets/seedlings.jpg';
-import seminaire from '../../assets/seminaire.jpg';
+import courgette from '../../assets/courgette.jpeg';
 import formation from '../../assets/formation.jpg';
 import './Home.css';
 
@@ -47,7 +47,7 @@ export class Home extends React.Component {
                 </Col>
                 <Col xs={6} md={4}>
                   <Card className="Cardhome">
-                  <div className="Zoom"><div className="Image"><Card.Img variant="top" src={seminaire}onClick={()=>this.showSeminaries()} alt="Picture of a seminary"/></div></div>
+                  <div className="Zoom"><div className="Image"><Card.Img variant="top" src={courgette}onClick={()=>this.showSeminaries()} alt="Picture of a seminary"/></div></div>
                     <Card.Body>
                     <Card.Title><h2>Séminaires</h2></Card.Title>
                     <Card.Text>
