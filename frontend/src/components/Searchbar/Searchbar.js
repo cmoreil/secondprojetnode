@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
-//const { API_KEY } = process.env
-const API_URL = "https://pokeapi.co/api/v2/ability/?limit=20&offset=20";
+const API_KEY = 'TzJVT2hEUmZMUEtrUzhKbVRNV3NhUT09';
+const API_URL = "https://trefle.io/api/plants";
 
 export class Searchbar extends React.Component  {
     state = {
@@ -11,12 +11,12 @@ export class Searchbar extends React.Component  {
       }
 
       getInfo = () => {
-        axios.get(`${API_URL}&prefix=${this.state.query}&limit=7`)
-          .then(({ data }) => {
-            this.setState({
-              results: data.data
-            })
-          })
+        axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=10`)
+      .then(({ data }) => {
+        this.setState({
+          results: data.data
+        })
+      })
       }
 
       handleInputChange = () => {
@@ -32,15 +32,26 @@ export class Searchbar extends React.Component  {
         }
 
         render() {
+          let plants = null;
+          if (this.state.plants) {
+            plants = (
+              <div>
+              <h2>Résultat de votre recherche :</h2>
+              <div>{this.state.plants.map(plant => <li key={plant.id}>{plant.common_name}</li>)}</div>
+              </div>
+          )}
+
           return (
-            <form>
-            <input
-              placeholder="Je recherche cette plante..."
-              ref={input => this.search = input}
-              onChange={this.handleInputChange}
-            />
-            <p>{this.state.query}</p>
-          </form>
+            <div>
+              <form>
+              <input
+                placeholder="Je recherche cette plante..."
+                ref={input => this.search = input}
+                onChange={this.handleInputChange}
+              />
+            </form>
+            {plants}
+          </div>
         )
       }
     }

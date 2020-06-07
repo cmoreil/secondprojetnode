@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, FormControl, FormLabel, FormGroup } from "react-bootstrap";
+import { Button, FormControl, FormLabel, FormGroup } from "react-bootstrap";
 import API from "../../utils/API";
 import './Contact.css';
 

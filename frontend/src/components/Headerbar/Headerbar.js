@@ -1,8 +1,7 @@
 import React from "react";
-import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import { FaSeedling } from "react-icons/fa";
 import { FaHands } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
 import { Searchbar } from "../Searchbar/Searchbar.js";
 import './Headerbar.css';
 
