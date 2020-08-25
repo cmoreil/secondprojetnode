@@ -4,8 +4,8 @@ const transport = nodemailer.createTransport({
   host: 'smtp.office365.com',
   port: 587,
   auth: {
-     user: 'caroline.moreil@epitech.eu',
-     pass: 'n?UYtEDO'
+     user: 'xxx', //ici adresse mail,
+     pass: 'xxx' //ici mot de passe boite mail
   }
 });
 
